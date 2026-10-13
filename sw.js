@@ -1,4 +1,4 @@
-const CACHE = 'tirage-smart-v4';
+const CACHE = 'tirage-smart-v5';
 // Core shell, fonts and import libraries are precached. OCR files (libs/tesseract/*) are cached on first use.
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
@@ -10,7 +10,7 @@ const SHELL = [
 ];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', e => {

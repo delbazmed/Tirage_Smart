@@ -277,7 +277,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:8px 0 4px}
 
 <script>
 'use strict';
-const APP={name:'Tirage_Smart',ver:'1.1.0',date:'2026-10-13',dev:'Delbaz Mohammed · Delbaz _EPS'};
+const APP={name:'Tirage_Smart',ver:'1.1.1',date:'2026-10-13',dev:'Delbaz Mohammed · Delbaz _EPS'};
 /* ================= i18n ================= */
 const I18N={
 ar:{app:'قرعة ذكية',tabList:'القائمة',tabDraw:'القرعة',tabHist:'السجل',tabSet:'الإعدادات',
@@ -335,6 +335,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const LS='tirage_smart_v1';
 const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
 const CHANGELOG=[
+ {v:'1.1.1',d:'2026-10-14',ar:['إصلاح: التحديثات تظهر فوراً دون بقاء النسخة القديمة في الذاكرة'],fr:['Correctif : les mises à jour s’affichent immédiatement sans rester en cache']},
  {v:'1.1.0',d:'2026-10-13',ar:['نافذة «ما الجديد» تظهر تلقائياً بعد كل تحديث','إشعار داخل التطبيق عند توفر نسخة جديدة مع زر «تحديث الآن»','زر «ما الجديد» في الإعدادات لعرض سجل النسخ'],fr:['Fenêtre « Nouveautés » affichée automatiquement après chaque mise à jour','Bandeau de mise à jour avec bouton « Mettre à jour »','Bouton « Nouveautés » dans les réglages pour voir l’historique']},
  {v:'1.0.0',d:'2026-10-13',ar:['الإصدار الأول: قرعة فائز، أفواج متوازنة، ترتيب، أدوار','استيراد من Excel وWord وPDF والصور (OCR) والملاحظات','نطق الأسماء، وضع ليلي/نهاري، معفى وغائب','تصدير PDF بترويسة وتوقيعات، وحفظ القوائم بأسماء حرة'],fr:['Première version : gagnant, groupes équilibrés, ordre, rôles','Import Excel, Word, PDF, images (OCR) et notes','Lecture vocale des noms, mode jour/nuit, dispensé et absent','Export PDF avec en-tête et signatures, listes nommées librement']}
 ];
