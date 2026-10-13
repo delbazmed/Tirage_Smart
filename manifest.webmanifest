@@ -1,0 +1,25 @@
+{
+  "name": "Tirage_Smart | قرعة ذكية",
+  "short_name": "Tirage_Smart",
+  "description": "Delbaz _EPS - Tirage au sort / قرعة ذكية",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "categories": ["education", "utilities"],
+  "share_target": {
+    "action": "./index.html",
+    "method": "GET",
+    "params": { "title": "title", "text": "text" }
+  },
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
