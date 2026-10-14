@@ -176,6 +176,14 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:8px 0 4px}
 .pvbody img{width:100%;max-width:780px;background:#fff;box-shadow:0 4px 18px #0004;margin:0 auto 14px;display:block;border-radius:4px}
 #printArea{display:none}
 @media print{body>*:not(#printArea){display:none!important}#printArea{display:block!important}#printArea img{width:100%;display:block;page-break-after:always}@page{margin:0}}
+
+table.rot{width:100%;border-collapse:separate;border-spacing:3px;font-size:13px;text-align:center}
+table.rot th{background:var(--text);color:var(--bg);padding:7px 4px;border-radius:8px;font-weight:700}
+table.rot th small{display:block;font-weight:400;opacity:.8}
+table.rot td{background:var(--card2);padding:7px 4px;border-radius:8px}
+table.rot td:first-child{background:var(--gc);color:#fff;font-weight:700}
+.rotw{overflow-x:auto;margin-top:12px}
+#big table.rot{font-size:clamp(15px,3.6vw,26px);margin-top:18px}
 </style>
 </head>
 <body>
@@ -294,7 +302,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:8px 0 4px}
 
 <script>
 'use strict';
-const APP={name:'Tirage_Smart',ver:'1.2.0',date:'2026-10-14',dev:'Delbaz Mohammed · Delbaz _EPS'};
+const APP={name:'Tirage_Smart',ver:'1.3.0',date:'2026-10-14',dev:'Delbaz Mohammed · Delbaz _EPS'};
 /* ================= i18n ================= */
 const I18N={
 ar:{app:'قرعة ذكية',tabList:'القائمة',tabDraw:'القرعة',tabHist:'السجل',tabSet:'الإعدادات',
@@ -317,7 +325,7 @@ copy:'نسخ',share:'مشاركة',pdf:'PDF',big:'عرض كبير',copied:'تم 
 delConfirm:'مسح كل البيانات؟',discardConfirm:'القائمة الحالية غير محفوظة، متابعة؟',empty:'لا يوجد سجل',del:'حذف',cancel:'إلغاء',save:'حفظ',
 edit:'تعديل التلميذ',fullName:'الاسم الكامل',gender:'الجنس',nd:'غير محدد',level:'المستوى',lvNone:'—',status:'الحالة',
 impTitle:'معاينة الاستيراد',impAdd:'إضافة للقائمة',impReplace:'استبدال القائمة',impNone:'لم يُعثر على أسماء في الملف',impFail:'تعذّرت قراءة الملف',impReading:'جارٍ قراءة الملف...',impOcr:'جارٍ التعرف على النص (قد يستغرق دقيقة)...',impDup:'مكرر مستبعد',impSel:'محدد',docOld:'صيغة .doc القديمة غير مدعومة، احفظ الملف بصيغة .docx',pasteFail:'تعذّر الوصول للحافظة، الصق في الحقل مباشرة',added:'أُضيف',clipboard:'الحافظة',
-setAppearance:'المظهر',thAuto:'تلقائي',thLight:'نهاري',thDark:'ليلي',setSound:'الصوت والنطق',setHdr:'ترويسة وثائق PDF',hdrTeacher:'الأستاذ',hdrSchool:'المؤسسة',hdrSeason:'الموسم الدراسي',hdrSup:'الناظر',hdrDir:'المدير',hdrNote:'تظهر هذه المعلومات في أعلى ملف PDF، وتحت النتيجة خانات التوقيع (الأستاذ، الناظر، المدير).',setAbout:'حول التطبيق',aboutDev:'المطور',aboutVer:'النسخة',aboutDate:'تاريخ الإصدار',whatsNew:'ما الجديد',addRole:'+ دور جديد',roleName:'اسم الدور',pinBtn:'تعيين مباشر',direct:'مباشر',rAll:'وزّع الجميع على الأدوار (وإلا يبقى الباقون بدون دور)',rExe:'إشراك المعفى في الأدوار',rAbs:'إشراك الغائب في الأدوار',noRole:'بدون دور',pickPeople:'اختر المعيَّنين مباشرة لهذا الدور',done:'تم',download:'تحميل',print:'طباعة',closeB:'إغلاق',repub:'الجمهورية الجزائرية الديمقراطية الشعبية',minis:'وزارة التربية الوطنية',sigTitle:'الإمضاء',rolesHint:'حدّد عدد المقاعد لكل دور. المعيَّنون مباشرة يُستثنون من القرعة.',pinnedTo:'معيَّن في',wnTitle:'ما الجديد في النسخة',gotIt:'حسناً',updReady:'تحديث جديد جاهز',updNow:'تحديث الآن',curVer:'النسخة الحالية',olderVer:'النسخ السابقة'},
+setAppearance:'المظهر',thAuto:'تلقائي',thLight:'نهاري',thDark:'ليلي',setSound:'الصوت والنطق',setHdr:'ترويسة وثائق PDF',hdrTeacher:'الأستاذ',hdrSchool:'المؤسسة',hdrSeason:'الموسم الدراسي',hdrSup:'الناظر',hdrDir:'المدير',hdrNote:'تظهر هذه المعلومات في أعلى ملف PDF، وتحت النتيجة خانات التوقيع (الأستاذ، الناظر، المدير).',setAbout:'حول التطبيق',aboutDev:'المطور',aboutVer:'النسخة',aboutDate:'تاريخ الإصدار',whatsNew:'ما الجديد',mRot:'تناوب',stLabel:'الورشات / المحطات',addSt:'+ ورشة',stName:'اسم الورشة',rotDur:'مدة كل دورة (دقيقة، 0 = بدون)',rotHint:'عدد الأفواج = عدد الورشات، ويمرّ كل فوج على كل الورشات بالتناوب.',round:'الدورة',rotTitle:'تناوب الورشات',rotTable:'جدول التناوب',gTeams:'أسماء وألوان فرق',gCap:'قائد عشوائي لكل فوج',team:'الفريق',captain:'قائد',min:'د',needSt:'أضف ورشتين على الأقل',teamNames:['الأحمر','الأزرق','الأخضر','الأصفر','البرتقالي','البنفسجي','الوردي','التركوازي'],addRole:'+ دور جديد',roleName:'اسم الدور',pinBtn:'تعيين مباشر',direct:'مباشر',rAll:'وزّع الجميع على الأدوار (وإلا يبقى الباقون بدون دور)',rExe:'إشراك المعفى في الأدوار',rAbs:'إشراك الغائب في الأدوار',noRole:'بدون دور',pickPeople:'اختر المعيَّنين مباشرة لهذا الدور',done:'تم',download:'تحميل',print:'طباعة',closeB:'إغلاق',repub:'الجمهورية الجزائرية الديمقراطية الشعبية',minis:'وزارة التربية الوطنية',sigTitle:'الإمضاء',rolesHint:'حدّد عدد المقاعد لكل دور. المعيَّنون مباشرة يُستثنون من القرعة.',pinnedTo:'معيَّن في',wnTitle:'ما الجديد في النسخة',gotIt:'حسناً',updReady:'تحديث جديد جاهز',updNow:'تحديث الآن',curVer:'النسخة الحالية',olderVer:'النسخ السابقة'},
 fr:{app:'Tirage Smart',tabList:'Liste',tabDraw:'Tirage',tabHist:'Historique',tabSet:'Réglages',
 curList:'Liste actuelle',unnamed:'Liste sans nom (non enregistrée)',rename:'Renommer',newList:'Nouvelle liste',renamePrompt:'Nouveau nom de la liste',exists:'Ce nom existe déjà',
 addNames:'Ajouter des noms',addPh:'Saisir ou coller les noms (nom complet par ligne)',add:'Ajouter',paste:'Coller',importFile:'Importer un fichier',importHint:'Excel · Word · PDF (même scanné) · Image · TXT · ou partage depuis Notes',
@@ -338,7 +346,7 @@ copy:'Copier',share:'Partager',pdf:'PDF',big:'Affichage XL',copied:'Copié',save
 delConfirm:'Effacer toutes les données ?',discardConfirm:'La liste actuelle n’est pas enregistrée, continuer ?',empty:'Aucun historique',del:'Supprimer',cancel:'Annuler',save:'Enregistrer',
 edit:'Modifier l’élève',fullName:'Nom complet',gender:'Sexe',nd:'N.D.',level:'Niveau',lvNone:'—',status:'État',
 impTitle:'Aperçu de l’import',impAdd:'Ajouter à la liste',impReplace:'Remplacer la liste',impNone:'Aucun nom trouvé dans le fichier',impFail:'Lecture du fichier impossible',impReading:'Lecture du fichier...',impOcr:'Reconnaissance du texte (peut durer une minute)...',impDup:'doublons ignorés',impSel:'sélectionnés',docOld:'Le format .doc n’est pas pris en charge, enregistrez en .docx',pasteFail:'Presse-papiers inaccessible, collez dans le champ',added:'ajoutés',clipboard:'Presse-papiers',
-setAppearance:'Apparence',thAuto:'Auto',thLight:'Jour',thDark:'Nuit',setSound:'Son et voix',setHdr:'En-tête des documents PDF',hdrTeacher:'Enseignant',hdrSchool:'Établissement',hdrSeason:'Année scolaire',hdrSup:'Surveillant général',hdrDir:'Directeur',hdrNote:'Ces informations apparaissent en haut du PDF, avec les cases de signature (enseignant, surveillant général, directeur) sous le résultat.',setAbout:'À propos',aboutDev:'Développeur',aboutVer:'Version',aboutDate:'Date de publication',whatsNew:'Nouveautés',addRole:'+ Nouveau rôle',roleName:'Nom du rôle',pinBtn:'Affectation directe',direct:'direct',rAll:'Répartir tout le monde sur les rôles (sinon les autres restent sans rôle)',rExe:'Inclure les dispensés',rAbs:'Inclure les absents',noRole:'Sans rôle',pickPeople:'Choisir les personnes affectées directement à ce rôle',done:'OK',download:'Télécharger',print:'Imprimer',closeB:'Fermer',repub:'République Algérienne Démocratique et Populaire',minis:'Ministère de l’Éducation Nationale',sigTitle:'Signatures',rolesHint:'Fixez le nombre de places par rôle. Les personnes affectées directement sont exclues du tirage.',pinnedTo:'affecté à',wnTitle:'Nouveautés de la version',gotIt:'OK',updReady:'Mise à jour disponible',updNow:'Mettre à jour',curVer:'Version actuelle',olderVer:'Versions précédentes'}
+setAppearance:'Apparence',thAuto:'Auto',thLight:'Jour',thDark:'Nuit',setSound:'Son et voix',setHdr:'En-tête des documents PDF',hdrTeacher:'Enseignant',hdrSchool:'Établissement',hdrSeason:'Année scolaire',hdrSup:'Surveillant général',hdrDir:'Directeur',hdrNote:'Ces informations apparaissent en haut du PDF, avec les cases de signature (enseignant, surveillant général, directeur) sous le résultat.',setAbout:'À propos',aboutDev:'Développeur',aboutVer:'Version',aboutDate:'Date de publication',whatsNew:'Nouveautés',mRot:'Rotation',stLabel:'Ateliers / stations',addSt:'+ Atelier',stName:'Nom de l’atelier',rotDur:'Durée de chaque rotation (min, 0 = aucune)',rotHint:'Nombre de groupes = nombre d’ateliers ; chaque groupe passe par tous les ateliers.',round:'Rotation',rotTitle:'Rotation des ateliers',rotTable:'Tableau de rotation',gTeams:'Noms et couleurs d’équipes',gCap:'Capitaine aléatoire par groupe',team:'Équipe',captain:'capitaine',min:'min',needSt:'Ajoutez au moins deux ateliers',teamNames:['Rouge','Bleu','Vert','Jaune','Orange','Violet','Rose','Turquoise'],addRole:'+ Nouveau rôle',roleName:'Nom du rôle',pinBtn:'Affectation directe',direct:'direct',rAll:'Répartir tout le monde sur les rôles (sinon les autres restent sans rôle)',rExe:'Inclure les dispensés',rAbs:'Inclure les absents',noRole:'Sans rôle',pickPeople:'Choisir les personnes affectées directement à ce rôle',done:'OK',download:'Télécharger',print:'Imprimer',closeB:'Fermer',repub:'République Algérienne Démocratique et Populaire',minis:'Ministère de l’Éducation Nationale',sigTitle:'Signatures',rolesHint:'Fixez le nombre de places par rôle. Les personnes affectées directement sont exclues du tirage.',pinnedTo:'affecté à',wnTitle:'Nouveautés de la version',gotIt:'OK',updReady:'Mise à jour disponible',updNow:'Mettre à jour',curVer:'Version actuelle',olderVer:'Versions précédentes'}
 };
 const PAL=['#22c55e','#38bdf8','#f59e0b','#f472b6','#a78bfa','#fb7185','#2dd4bf','#facc15','#60a5fa','#f97316'];
 const PALD=['#16a34a','#0284c7','#d97706','#db2777','#7c3aed','#e11d48','#0d9488','#ca8a04','#2563eb','#ea580c'];
@@ -350,8 +358,9 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const LS='tirage_smart_v1';
-const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',rl:[],rAll:false,rExe:false,rAbs:false,hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
+const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',rl:[],sl:[],rDur:0,gTeams:false,gCap:false,rAll:false,rExe:false,rAbs:false,hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
 const CHANGELOG=[
+ {v:'1.3.0',d:'2026-10-14',ar:['وضع جديد «تناوب»: توزيع الأفواج على الورشات مع جدول دورات ومدة كل دورة','أفواج بأسماء وألوان فرق (الأحمر، الأزرق…) مع قائد عشوائي لكل فوج','PDF في صفحة واحدة تلقائياً (صفحتان فقط عند الأعداد الكبيرة جداً)'],fr:['Nouveau mode « Rotation » : groupes répartis sur des ateliers avec tableau et durée','Groupes avec noms et couleurs d’équipes (Rouge, Bleu…) et capitaine aléatoire','PDF sur une seule page automatiquement (deux pages seulement pour de très grands effectifs)']},
  {v:'1.2.0',d:'2026-10-14',ar:['الأدوار: عدد الأشخاص لكل دور، وتعيين مباشر لأشخاص معيّنين (يُستثنون من القرعة)','مفتاح «وزّع الجميع على الأدوار» وخيارا إشراك المعفى والغائب','PDF: ترويسة رسمية (الجمهورية الجزائرية الديمقراطية الشعبية · وزارة التربية الوطنية · المؤسسة · السنة الدراسية) وقسم «الإمضاء» في الأسفل','نافذة معاينة PDF بأزرار تحميل · طباعة · إغلاق'],fr:['Rôles : nombre de personnes par rôle, affectation directe (exclus du tirage)','Interrupteur « Répartir tout le monde » et options dispensés / absents','PDF : en-tête officiel (République Algérienne… · Ministère de l’Éducation Nationale · établissement · année scolaire) et zone « Signatures »','Aperçu PDF avec boutons Télécharger · Imprimer · Fermer']},
  {v:'1.1.1',d:'2026-10-14',ar:['إصلاح: التحديثات تظهر فوراً دون بقاء النسخة القديمة في الذاكرة'],fr:['Correctif : les mises à jour s’affichent immédiatement sans rester en cache']},
  {v:'1.1.0',d:'2026-10-13',ar:['نافذة «ما الجديد» تظهر تلقائياً بعد كل تحديث','إشعار داخل التطبيق عند توفر نسخة جديدة مع زر «تحديث الآن»','زر «ما الجديد» في الإعدادات لعرض سجل النسخ'],fr:['Fenêtre « Nouveautés » affichée automatiquement après chaque mise à jour','Bandeau de mise à jour avec bouton « Mettre à jour »','Bouton « Nouveautés » dans les réglages pour voir l’historique']},
@@ -359,7 +368,7 @@ const CHANGELOG=[
 ];
 const FRESH=(()=>{try{return !localStorage.getItem(LS)}catch(e){return true}})();
 let S=(()=>{try{return Object.assign(def(),JSON.parse(localStorage.getItem(LS))||{})}catch(e){return def()}})();
-if(!Array.isArray(S.rl))S.rl=[];
+if(!Array.isArray(S.rl))S.rl=[];if(!Array.isArray(S.sl))S.sl=[];
 if(!S.rl.length&&S.roles)S.roles.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(n=>S.rl.push({id:uid(),n,c:1,fx:[]}));
 S.hdr=Object.assign(def().hdr,S.hdr||{});
 (function migrate(){
@@ -378,6 +387,8 @@ const t=k=>(I18N[S.lang]&&I18N[S.lang][k])||k;
 let busy=false;
 
 const dn=p=>p.n;
+const TEAMC=['#dc2626','#2563eb','#16a34a','#ca8a04','#ea580c','#7c3aed','#db2777','#0d9488'];
+const bc=(b,i)=>b.c||PALD[i%PALD.length];
 const pres=()=>S.people.filter(p=>!p.s);
 const gfOk=p=>S.gf==='all'||p.g===S.gf;
 const basePool=()=>pres().filter(gfOk);
@@ -430,7 +441,7 @@ function speak(text){
 async function speakAll(lines){const id=++SPK;for(const l of lines){if(id!==SPK)break;await speak(l);if(id!==SPK)break;await sleep(120)}}
 const speechLines=e=>{
   if(!e)return[];
-  if(isGrouped(e))return e.blocks.filter(b=>!b.none).flatMap(b=>[b.h,...b.items]);
+  if(isGrouped(e))return e.blocks.filter(b=>!b.none).flatMap(b=>[b.h,...b.items.map((x,i)=>b.cap===i?`${x}، ${t('captain')}`:x)]);
   const b=e.blocks[0];return e.mode==='order'?b.items.map((x,i)=>`${i+1}. ${x}`):b.items};
 
 /* ================= name parsing ================= */
@@ -539,7 +550,7 @@ function renderDraw(){
   $('#drawStat').innerHTML=`<span style="color:var(--ok)">✓ ${c(p=>!p.s)}</span> · <span style="color:var(--no)">✗ ${c(p=>p.s==='a')}</span> · <span style="color:var(--ex)">★ ${c(p=>p.s==='e')}</span> · <span style="color:var(--m)">♂ ${c(p=>!p.s&&p.g==='m')}</span> <span style="color:var(--f)">♀ ${c(p=>!p.s&&p.g==='f')}</span>`;
   $('#drawnStat').innerHTML=S.mode==='winner'&&S.noRepeat&&S.drawn.length?`${t('drawn')}: <b>${S.drawn.length}</b> <button class="btn sm" data-a="resetdrawn">${t('reset')}</button>`:'';
   $('#gfSeg').innerHTML=segHTML([['all',t('gfAll')],['m','♂ '+t('gfM')],['f','♀ '+t('gfF')]],S.gf,'gf');
-  $('#modeSeg').innerHTML=segHTML([['winner',t('mWinner')],['groups',t('mGroups')],['order',t('mOrder')],['roles',t('mRoles')]],S.mode,'mode');
+  $('#modeSeg').innerHTML=segHTML([['winner',t('mWinner')],['groups',t('mGroups')],['order',t('mOrder')],['roles',t('mRoles')],['rotation',t('mRot')]],S.mode,'mode');
   const chk=(k,l)=>`<div class="sw"><span>${l}</span><input type="checkbox" data-chk="${k}" ${S[k]?'checked':''}></div>`;
   let h='';
   if(S.mode==='winner'){
@@ -548,7 +559,13 @@ function renderDraw(){
   }else if(S.mode==='groups'){
     h+=`<div class="lbl">${t('gBy')}</div><div class="seg">${segHTML([['num',t('gNum')],['size',t('gSize')]],S.gType,'gt')}</div>`;
     h+=`<div class="lbl">${t('gVal')}</div>${stepper('gVal',S.gVal)}`;
-    h+=`<div style="margin-top:6px">`+chk('bG',t('bGender'))+chk('bL',t('bLevel'))+chk('gExe',t('gExe'))+chk('gAbs',t('gAbs'))+`</div>`;
+    h+=`<div style="margin-top:6px">`+chk('bG',t('bGender'))+chk('bL',t('bLevel'))+chk('gTeams',t('gTeams'))+chk('gCap',t('gCap'))+chk('gExe',t('gExe'))+chk('gAbs',t('gAbs'))+`</div>`;
+  }else if(S.mode==='rotation'){
+    if(!S.sl.length)S.sl=[1,2,3].map(i=>({id:uid(),n:(S.lang==='ar'?'ورشة ':'Atelier ')+i}));
+    h+=`<div class="lbl">${t('stLabel')}</div><div class="hint" style="margin-bottom:8px">${t('rotHint')}</div>`;
+    h+=S.sl.map(r=>`<div class="rrow" style="padding:6px"><input type="text" data-sn="${r.id}" value="${esc(r.n)}" placeholder="${esc(t('stName'))}" style="flex:1 1 0"><button class="btn sm" data-a="sdel" data-v="${r.id}">×</button></div>`).join('');
+    h+=`<button class="btn sm" data-a="sadd">${t('addSt')}</button><div class="lbl">${t('rotDur')}</div><div class="stepper"><button data-a="dstep" data-d="-1">−</button><output>${S.rDur}</output><button data-a="dstep" data-d="1">+</button></div>`;
+    h+=`<div style="margin-top:6px">`+chk('bG',t('bGender'))+chk('gExe',t('gExe'))+chk('gAbs',t('gAbs'))+`</div>`;
   }else if(S.mode==='roles'){
     if(!S.rl.length)S.rl.push({id:uid(),n:'',c:1,fx:[]});
     h+=`<div class="lbl">${t('rolesLabel')}</div><div class="hint" style="margin-bottom:8px">${t('rolesHint')}</div>`;
@@ -569,8 +586,11 @@ function renderSettings(){
   let hint=t('speakHint');
   if(speechOK()){try{if(speechSynthesis.getVoices().length&&!pickVoice('ar-SA'))hint=t('speakNoVoice')+'. '+hint}catch(e){}}else hint='—';
   $('#speakHint').textContent=hint}
-const isGrouped=e=>e.mode==='groups'||(e.mode==='roles'&&e.blocks.some(b=>b.h));
-const itx=(b,i)=>b.items[i]+(b.pin&&b.pin.includes(i)?` (${t('direct')})`:'');
+const isGrouped=e=>e.mode==='groups'||e.mode==='rotation'||(e.mode==='roles'&&e.blocks.some(b=>b.h));
+const itx=(b,i)=>b.items[i]+(b.pin&&b.pin.includes(i)?` (${t('direct')})`:'')+(b.cap===i?` (${t('captain')})`:'');
+function rotHTML(e){
+  const st=e.rot.st,n=st.length,G=e.blocks.filter(b=>!b.rotb);
+  return `<div class="rotw"><table class="rot"><thead><tr><th></th>${st.map((_,r)=>`<th>${t('round')} ${r+1}${e.rot.dur?`<small>${e.rot.dur} ${t('min')}</small>`:''}</th>`).join('')}</tr></thead><tbody>${G.map((b,g)=>`<tr><td style="--gc:${bc(b,g)}">${esc(b.h)}</td>${st.map((_,r)=>`<td>${esc(st[(g+r)%n])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}
 function blocksText(title,blocks){return[title,...blocks.map(b=>(b.h?b.h+':\n':'')+b.items.map((x,i)=>(b.num?(i+1)+'. ':'• ')+itx(b,i)).join('\n'))].join('\n\n')}
 function renderHist(){
   $('#hist').innerHTML=S.history.length?S.history.map((h,i)=>`<div class="hitem"><div class="hh"><span>${new Date(h.ts).toLocaleString(S.lang==='ar'?'ar-DZ':'fr-FR',{dateStyle:'short',timeStyle:'short'})}</span><span><button class="btn sm" data-a="hcopy" data-v="${i}">${t('copy')}</button> <button class="btn sm" data-a="hdel" data-v="${i}">${t('del')}</button></span></div><div class="hbody">${esc(blocksText(h.title,h.blocks))}</div></div>`).join(''):`<div class="empty">${t('empty')}</div>`;
@@ -756,23 +776,26 @@ function makeGroups(pool,ng,bG,bL){
     for(const x of cand){const s=(bG?x.cnt[p.g||'']*1000:0)+(bL?x.sum:0);if(s<bs){bs=s;best=[x]}else if(s===bs)best.push(x)}
     const x=best[randInt(best.length)];x.m.push(p);x.cnt[p.g||'']++;x.sum+=lv(p)}
   return G.map(x=>x.m)}
-function finish(mode,title,blocks){
-  const entry={ts:Date.now(),mode,title,blocks};
+function finish(mode,title,blocks,extra){
+  const entry=Object.assign({ts:Date.now(),mode,title,blocks},extra||{});
   S.history.unshift(entry);S.history=S.history.slice(0,50);save();window.LAST=entry;
   const r=$('#result');r.style.display='block';
   let h=`<h3>${esc(title)}</h3>`;
-  if(isGrouped({mode,blocks})){h+='<div class="groups">'+blocks.map((b,i)=>`<div class="gcard" style="--gc:${PALD[i%PALD.length]};animation-delay:${i*90}ms"><h4>${esc(b.h)} <small>(${b.items.length})</small></h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))}</div>`).join('')}</div>`).join('')+'</div>'}
+  if(isGrouped({mode,blocks})){h+='<div class="groups">'+blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="gcard" style="--gc:${bc(b,i)};animation-delay:${i*90}ms"><h4>${esc(b.h)} <small>(${b.items.length})</small></h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))}</div>`).join('')}</div>`).join('')+'</div>'}
   else h+=blocks.map(b=>`<div class="items">${b.items.map((x,i)=>`<div class="it" style="--c:${PAL[i%PAL.length]};animation-delay:${i*60}ms"><em>${b.num?i+1:'•'}</em>${esc(itx(b,i))}</div>`).join('')}</div>`).join('');
+  if(entry.rot)h+=rotHTML(entry);
   h+=`<div class="acts"><button class="btn" data-a="speakres">🔊 ${t('speakBtn')}</button><button class="btn" data-a="copyres">${t('copy')}</button><button class="btn" data-a="shareres">${t('share')}</button><button class="btn" data-a="pdfres">${t('pdf')}</button><button class="btn" data-a="bigres">${t('big')}</button></div>`;
   r.innerHTML=h;r.scrollIntoView({behavior:'smooth',block:'nearest'});renderHist();confetti();winSound();return entry}
 async function runDraw(){
   if(busy)return;
   if(!S.people.length)return toast(t('needNames'));
-  let pool=S.mode==='groups'?groupsPool():S.mode==='roles'?rolesPool():basePool();
+  let pool=(S.mode==='groups'||S.mode==='rotation')?groupsPool():S.mode==='roles'?rolesPool():basePool();
   if(S.mode==='winner'&&S.noRepeat)pool=pool.filter(p=>!S.drawn.includes(p.id));
   if(!pool.length&&S.mode!=='roles')return toast(t('noneLeft'));
   if((S.mode==='groups'||S.mode==='order')&&pool.length<2)return toast(t('needTwo'));
   let roles=[];
+  let ST=[];
+  if(S.mode==='rotation'){ST=S.sl.map(x=>x.n.trim()).filter(Boolean);if(ST.length<2)return toast(t('needSt'));if(pool.length<ST.length)return toast(t('needTwo'))}
   let RL=[];
   if(S.mode==='roles'){
     RL=S.rl.filter(r=>r.n.trim()).map(r=>({...r,n:r.n.trim(),fx:r.fx.slice()}));
@@ -816,11 +839,23 @@ async function runDraw(){
       if(mem.every(m=>m.length===1))blocks=[{h:'',num:false,items:RL.map((r,i)=>`${r.n}: ${dn(mem[i][0])}`),pin:rng(RL.length).filter(i=>pinN[i]>0)}];
       else{blocks=RL.map((r,i)=>({h:r.n,items:mem[i].map(dn),pin:rng(pinN[i])}));if(rest.length)blocks.push({h:t('noRole'),items:rest.map(dn),none:true})}
       entry=finish('roles',t('resRoles'),blocks);speakNow=true;
+    }else if(S.mode==='rotation'){
+      const ng=ST.length,G=makeGroups(pool,ng,S.bG,false);
+      await spin(pool,12,80);
+      const gb=G.map((m,i)=>({h:`${t('group')} ${i+1}`,items:m.map(dn)}));
+      const lines=gb.map((b,g)=>`${b.h}: `+ST.map((_,r)=>ST[(g+r)%ST.length]).join(S.lang==='ar'?' ← ':' → '));
+      gb.push({h:t('rotTable'),items:lines,none:true,rotb:true});
+      entry=finish('rotation',t('rotTitle'),gb,{rot:{st:ST,dur:S.rDur}});speakNow=true;
     }else{
       let ng=S.gType==='num'?S.gVal:Math.ceil(pool.length/S.gVal);ng=Math.max(1,Math.min(ng,pool.length));
       const G=makeGroups(pool,ng,S.bG,S.bL);
       await spin(pool,12,80);
-      entry=finish('groups',t('resGroups'),G.map((m,i)=>({h:`${t('group')} ${i+1}`,items:m.map(dn)})));speakNow=true;
+      const ar=S.lang==='ar';
+      entry=finish('groups',t('resGroups'),G.map((m,i)=>{
+        let items=m.map(dn),b={};
+        if(S.gTeams){const nm=t('teamNames');b.h=`${t('team')} ${i<8?nm[i]:i+1}`;b.c=i<8?TEAMC[i]:PALD[i%PALD.length]}else b.h=`${t('group')} ${i+1}`;
+        if(S.gCap&&items.length){const ci=randInt(items.length);items=[items[ci],...items.filter((_,k)=>k!==ci)];b.cap=0}
+        b.items=items;return b}));speakNow=true;
     }
   }finally{busy=false;stage.classList.remove('on');renderAll()}
   if(speakNow&&entry)speakAll(speechLines(entry));
@@ -832,7 +867,7 @@ let WL=null;
 function showBig(){
   const e=window.LAST;if(!e)return;
   let h=`<button class="bclose" data-a="closebig">×</button><div class="btitle">${esc(e.title)}</div>`;
-  if(isGrouped(e))h+='<div class="bgroups">'+e.blocks.map((b,i)=>`<div class="bg" style="--gc:${PALD[i%PALD.length]}"><h4>${esc(b.h)}</h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))}</div>`).join('')}</div>`).join('')+'</div>';
+  if(isGrouped(e))h+='<div class="bgroups">'+e.blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="bg" style="--gc:${bc(b,i)}"><h4>${esc(b.h)}</h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))}</div>`).join('')}</div>`).join('')+'</div>'+(e.rot?rotHTML(e):'');
   else if(e.blocks[0].items.length===1)h+=`<div class="bone">${esc(e.blocks[0].items[0])}</div>`;
   else h+='<div class="blist">'+e.blocks[0].items.map((x,i)=>`<div style="--c:${PAL[i%PAL.length]}"><em>${e.blocks[0].num?i+1:'•'}</em><span>${esc(itx(e.blocks[0],i))}</span></div>`).join('')+'</div>';
   const b=$('#big');b.innerHTML=h;b.classList.add('on');b.scrollTop=0;
@@ -863,11 +898,13 @@ async function makePDF(entry){
   const text=(s,x,yy,font,color,align)=>{g.font=font;g.fillStyle=color;g.textBaseline='middle';g.direction=ar?'rtl':'ltr';g.textAlign=align||AS;g.fillText(s,x,yy)};
   const rr=(x,yy,w,h,fill)=>{g.fillStyle=fill;g.beginPath();if(g.roundRect)g.roundRect(x,yy,w,h,12);else g.rect(x,yy,w,h);g.fill()};
   const newPage=()=>{const c=document.createElement('canvas');c.width=W;c.height=H;g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,W,H);const gr=g.createLinearGradient(0,0,W,0);gr.addColorStop(0,'#14b8a6');gr.addColorStop(1,'#22c55e');g.fillStyle=gr;g.fillRect(0,0,W,16);pages.push(c);y=110};
-  const rowItem=(label,it,i,xx,ww,col)=>{
-    rr(xx,y-26,ww,54,i%2?'#ffffff':'#f1f5f3');
-    const cx=ar?xx+ww-34:xx+34;g.fillStyle=col;g.beginPath();g.arc(cx,y+1,19,0,7);g.fill();
-    text(String(label),cx,y+2,`700 21px ${FONT}`,'#fff','center');
-    text(it,ar?xx+ww-80:xx+80,y+2,`500 29px ${FONT}`,'#0f172a')};
+  const SIGH=262;
+  const fit=(str,x,yy,maxW,wt,size,col,al)=>{let z=size;g.font=`${wt} ${z}px ${FONT}`;while(z>15&&g.measureText(str).width>maxW){z--;g.font=`${wt} ${z}px ${FONT}`}text(str,x,yy,`${wt} ${z}px ${FONT}`,col,al)};
+  const row2=(label,txt,i,xx,ww,col,rh,yt)=>{
+    const hg=rh-8,r=Math.min(19,hg*.36),yc=yt+rh/2;rr(xx,yt+4,ww,hg,i%2?'#ffffff':'#f1f5f3');
+    const cx=ar?xx+ww-r-14:xx+r+14;g.fillStyle=col;g.beginPath();g.arc(cx,yc,r,0,7);g.fill();
+    text(String(label),cx,yc+1,`700 ${Math.round(r*1.05)}px ${FONT}`,'#fff','center');
+    const off=2*r+30;fit(txt,ar?xx+ww-off:xx+off,yc+1,ww-off-14,500,Math.min(29,Math.round(hg*.55)),'#0f172a')};
   newPage();
   /* official header: Republic / Ministry (centered), then institution + season */
   text(t('repub'),W/2,76,`700 33px ${FONT}`,'#0b1220','center');
@@ -878,33 +915,58 @@ async function makePDF(entry){
   if(wS+wE+60>W-2*M){if(sc)text(sc,XS,top,`500 27px ${FONT}`,'#0f172a');if(se)text(se,XS,top+44,`500 27px ${FONT}`,'#0f172a');top+=44}
   else{if(sc)text(sc,XS,top,`500 27px ${FONT}`,'#0f172a');if(se)text(se,XE,top,`500 27px ${FONT}`,'#0f172a',AE)}
   g.fillStyle='#cbd5e1';g.fillRect(M,top+26,W-2*M,2);top+=64;
-  text(entry.title,XS,top+40,`700 62px ${FONT}`,'#0b1220');
-  text(new Date(entry.ts).toLocaleString(ar?'ar-DZ':'fr-FR'),XS,top+108,`400 27px ${FONT}`,'#64748b');
-  g.fillStyle='#e2e8f0';g.fillRect(M,top+150,W-2*M,3);y=top+196;
+  text(entry.title,XS,top+34,`700 54px ${FONT}`,'#0b1220');
+  text(new Date(entry.ts).toLocaleString(ar?'ar-DZ':'fr-FR'),XS,top+88,`400 25px ${FONT}`,'#64748b');
+  g.fillStyle='#e2e8f0';g.fillRect(M,top+118,W-2*M,3);y=top+146;
+  const grp=entry.blocks.filter(b=>!b.rotb),avail=()=>BOT-SIGH-y;
+  if(entry.rot){
+    const st=entry.rot.st,n=st.length,cwid=(W-2*M)/(n+1),rh0=Math.min(58,Math.max(38,Math.floor(360/(grp.length+1))));
+    const colX=k=>ar?W-M-cwid*(k+1):M+cwid*k;
+    for(let k=0;k<=n;k++){rr(colX(k),y,cwid-4,rh0-4,'#0f172a');if(k>0)fit(`${t('round')} ${k}`+(entry.rot.dur?` · ${entry.rot.dur}${t('min')}`:''),colX(k)+cwid/2-2,y+rh0/2-2,cwid-14,700,24,'#fff','center')}
+    y+=rh0;
+    grp.forEach((b,gi)=>{rr(colX(0),y,cwid-4,rh0-4,bc(b,gi));fit(b.h,colX(0)+cwid/2-2,y+rh0/2-2,cwid-14,700,24,'#fff','center');
+      for(let r=0;r<n;r++){rr(colX(r+1),y,cwid-4,rh0-4,gi%2?'#f8fafc':'#eef2f1');fit(st[(gi+r)%n],colX(r+1)+cwid/2-2,y+rh0/2-2,cwid-14,500,24,'#0f172a','center')}
+      y+=rh0});
+    y+=24}
   if(!isGrouped(entry)){
-    const b=entry.blocks[0];
-    b.items.forEach((it,i)=>{if(y+60>BOT)newPage();rowItem(b.num?i+1:'•',itx(b,i),i,M,W-2*M,PALD[i%PALD.length]);y+=62})
+    const b=entry.blocks[0],n=b.items.length;let cols=0,rh=62;
+    for(const c of[1,2,3]){const per=Math.ceil(n/c),r=Math.min(62,Math.floor(avail()/per));if(r>=(c===1?46:c===2?40:34)){cols=c;rh=r;break}}
+    if(!cols){for(const c of[2,3]){const per=Math.ceil(n/c),r=Math.min(52,Math.floor((BOT-y)/per));if(r>=(c===2?40:34)){cols=c;rh=r;break}}}
+    if(!cols){b.items.forEach((it,i)=>{if(y+62>BOT)newPage();row2(b.num?i+1:'•',itx(b,i),i,M,W-2*M,PALD[i%PALD.length],62,y);y+=62})}
+    else{const gap=22,cw=(W-2*M-gap*(cols-1))/cols,per=Math.ceil(n/cols);
+      for(let c=0;c<cols;c++){const xx=ar?W-M-cw-c*(cw+gap):M+c*(cw+gap);
+        for(let k=0;k<per;k++){const i=c*per+k;if(i>=n)break;row2(b.num?i+1:'•',itx(b,i),i,xx,cw,PALD[i%PALD.length],rh,y+k*rh)}}
+      y+=per*rh}
   }else{
-    const bl=entry.blocks,cw=(W-2*M-30)/2,rh=52,hh=80,hs=bl.map(b=>hh+b.items.length*rh+26);
-    if(Math.max(...hs)>BOT-130){
-      bl.forEach((b,bi)=>{if(y+110>BOT)newPage();text(`${b.h} (${b.items.length})`,XS,y+10,`700 40px ${FONT}`,PALD[bi%PALD.length]);y+=66;
-        b.items.forEach((it,i)=>{if(y+60>BOT)newPage();rowItem(i+1,itx(b,i),i,M,W-2*M,PALD[bi%PALD.length]);y+=62});y+=24})
-    }else for(let i=0;i<bl.length;i+=2){
-      const rowH=Math.max(hs[i],hs[i+1]||0);if(y+rowH>BOT)newPage();
-      [i,i+1].forEach((bi,col)=>{const b=bl[bi];if(!b)return;
-        const xx=ar?W-M-cw-col*(cw+30):M+col*(cw+30),c=PALD[bi%PALD.length];
-        rr(xx,y,cw,hs[bi],'#f8fafc');g.fillStyle=c;g.beginPath();if(g.roundRect)g.roundRect(xx,y,cw,hh-6,[12,12,0,0]);else g.rect(xx,y,cw,hh-6);g.fill();
-        text(`${b.h} (${b.items.length})`,ar?xx+cw-24:xx+24,y+hh/2-3,`700 34px ${FONT}`,'#fff');
-        b.items.forEach((it,k)=>{const yy=y+hh+k*rh+rh/2;text(itx(b,k),ar?xx+cw-24:xx+24,yy,`500 27px ${FONT}`,'#0f172a');g.fillStyle='#e2e8f0';g.fillRect(xx+20,yy+rh/2-1,cw-40,1)})});
-      y+=rowH+30}
+    const bl=grp,gap=26;let plan=null;
+    for(const [cols,minRh] of[[2,40],[3,34],[4,34],[2,30],[3,28],[4,24]]){
+      for(let rh=52;rh>=minRh&&!plan;rh-=2){
+        const hh=rh>=44?80:60;let tot=0;
+        for(let i=0;i<bl.length;i+=cols){const mx=Math.max(...bl.slice(i,i+cols).map(b=>b.items.length));tot+=hh+mx*rh+22+gap}
+        if(tot-gap<=avail())plan={cols,rh,hh}}
+      if(plan)break}
+    if(plan){
+      const {cols,rh,hh}=plan,cw=(W-2*M-gap*(cols-1))/cols,fs=Math.min(27,Math.round(rh*.52));
+      for(let i=0;i<bl.length;i+=cols){
+        const row=bl.slice(i,i+cols),rowH=hh+Math.max(...row.map(b=>b.items.length))*rh+22;
+        row.forEach((b,col)=>{const bi=i+col,xx=ar?W-M-cw-col*(cw+gap):M+col*(cw+gap),c=bc(b,bi),ch=hh+b.items.length*rh+22;
+          rr(xx,y,cw,ch,'#f8fafc');g.fillStyle=c;g.beginPath();if(g.roundRect)g.roundRect(xx,y,cw,hh-6,[12,12,0,0]);else g.rect(xx,y,cw,hh-6);g.fill();
+          fit(`${b.h} (${b.items.length})`,ar?xx+cw-24:xx+24,y+hh/2-3,cw-48,700,Math.min(34,Math.round(hh*.42)),'#fff');
+          b.items.forEach((it,k)=>{const yy=y+hh+k*rh+rh/2;fit(itx(b,k),ar?xx+cw-24:xx+24,yy,cw-48,500,fs,'#0f172a');g.fillStyle='#e2e8f0';g.fillRect(xx+20,yy+rh/2-1,cw-40,1)})});
+        y+=rowH+gap}
+      y-=gap
+    }else{
+      bl.forEach((b,bi)=>{if(y+110>BOT)newPage();text(`${b.h} (${b.items.length})`,XS,y+10,`700 40px ${FONT}`,bc(b,bi));y+=48;
+        b.items.forEach((it,i)=>{if(y+62>BOT)newPage();row2(i+1,itx(b,i),i,M,W-2*M,bc(b,bi),62,y);y+=62});y+=24})
+    }
   }
   /* signature boxes: teacher / supervisor / director */
-  if(y+330>BOT)newPage();
-  y+=40;text(t('sigTitle'),W/2,y,`700 31px ${FONT}`,'#0b1220','center');y+=70;const cw3=(W-2*M)/3,labs=[[t('hdrTeacher'),hd.teacher],[t('hdrSup'),hd.supervisor],[t('hdrDir'),hd.director]];
+  if(y+SIGH>BOT)newPage();
+  y+=26;text(t('sigTitle'),W/2,y,`700 30px ${FONT}`,'#0b1220','center');y+=58;const cw3=(W-2*M)/3,labs=[[t('hdrTeacher'),hd.teacher],[t('hdrSup'),hd.supervisor],[t('hdrDir'),hd.director]];
   labs.forEach(([l,v],k)=>{const cx=ar?W-M-cw3*k-cw3/2:M+cw3*k+cw3/2;
     text(l,cx,y,`700 26px ${FONT}`,'#0b1220','center');
-    g.fillStyle='#94a3b8';g.fillRect(cx-cw3/2+30,y+140,cw3-60,2);
-    if(v)text(v,cx,y+170,`400 23px ${FONT}`,'#475569','center')});
+    g.fillStyle='#94a3b8';g.fillRect(cx-cw3/2+30,y+110,cw3-60,2);
+    if(v)text(v,cx,y+138,`400 23px ${FONT}`,'#475569','center')});
   pages.forEach((c,i)=>{const gg=c.getContext('2d');gg.direction='ltr';gg.textAlign='center';gg.textBaseline='middle';gg.fillStyle='#16a34a';gg.font=`700 25px ${FONT}`;gg.fillText(`Delbaz _EPS · ${APP.name} v${APP.ver}`,W/2,H-66);gg.fillStyle='#94a3b8';gg.font=`400 22px ${FONT}`;gg.fillText(`${i+1} / ${pages.length}`,W/2,H-30)});
   const jpegs=[];
   for(const c of pages){const b=await new Promise(r=>c.toBlob(r,'image/jpeg',.92));jpegs.push({data:new Uint8Array(await b.arrayBuffer()),w:W,h:H})}
@@ -931,6 +993,9 @@ document.addEventListener('click',async e=>{
     case'theme':S.theme=v;save();renderAll();break;
     case'rate':S.rate=Number(v);save();renderSettings();break;
     case'whatsnew':showWhatsNew();break;
+    case'sadd':S.sl.push({id:uid(),n:(S.lang==='ar'?'ورشة ':'Atelier ')+(S.sl.length+1)});save();renderDraw();break;
+    case'sdel':S.sl=S.sl.filter(x=>x.id!==v);save();renderDraw();break;
+    case'dstep':S.rDur=Math.max(0,Math.min(60,S.rDur+Number(T.dataset.d)));save();renderDraw();break;
     case'radd':S.rl.push({id:uid(),n:'',c:1,fx:[]});save();renderDraw();break;
     case'rdel':S.rl=S.rl.filter(x=>x.id!==v);save();renderDraw();break;
     case'rstep':{const r=S.rl.find(x=>x.id===v);if(r){r.c=Math.max(Math.max(1,r.fx.length),Math.min(99,r.c+Number(T.dataset.d)));save();renderDraw()}break}
@@ -992,6 +1057,7 @@ document.addEventListener('input',e=>{
   const d=e.target.dataset;
   if(d&&d.ei!==undefined&&IMP){IMP.ents[d.ei].n=e.target.value;return}
   if(d&&d.hdr){S.hdr[d.hdr]=e.target.value;save();return}
+  if(d&&d.sn){const r=S.sl.find(x=>x.id===d.sn);if(r){r.n=e.target.value;save()}return}
   if(d&&d.rn){const r=S.rl.find(x=>x.id===d.rn);if(r){r.n=e.target.value;save()}return}
 });
 $('#file').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)importFile(f)});
