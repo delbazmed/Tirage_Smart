@@ -196,6 +196,47 @@ table.rot td:first-child{background:var(--gc);color:#fff;font-weight:700}
 .gcard h4 .dt{display:inline-block;background:#fff3;color:#fff;margin:4px 0 0;font-size:11.5px}
 table.rot th .dt{display:block;margin:3px 0 0;background:#fff2;color:inherit}
 .blist .dt,.bg .dt{font-size:clamp(13px,3vw,20px)}
+
+.dt.hol{background:color-mix(in srgb,#f59e0b 24%,transparent);color:#b45309}
+html[data-theme=dark] .dt.hol{color:#fbbf24}
+.gcard h4 .dt.hol{background:#f59e0b;color:#1a1200}
+.holrow{border:1px solid var(--line);border-radius:12px;padding:8px;margin:6px 0;background:var(--card)}
+.holrow input[type=text]{flex:1;min-width:0}
+#ubar{position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;transition:.2s;background:#111c;backdrop-filter:blur(8px);color:#fff;padding:8px 8px 8px 16px;border-radius:999px;font-size:13.5px;z-index:90;display:flex;gap:12px;align-items:center;max-width:92%;white-space:nowrap}
+#ubar.on{opacity:1;transform:translateX(-50%);pointer-events:auto}
+#ubar button{background:var(--grad);color:#04281a;border:0;border-radius:999px;padding:7px 14px;font:700 13px var(--font);cursor:pointer}
+.ds-grab{width:44px;height:5px;border-radius:9px;background:var(--line);margin:0 auto 12px}
+.ds-who{display:flex;justify-content:space-between;align-items:center;gap:8px}.ds-who b{font-size:17px}.ds-who span{font-size:12px;color:var(--muted);white-space:nowrap}
+.ds-big{margin:10px 0 10px;padding:14px;border-radius:18px;background:var(--grad);color:#04281a;display:flex;justify-content:space-between;align-items:center}
+.ds-big.warn{background:linear-gradient(135deg,#f59e0b,#f43f5e);color:#fff}
+.ds-d{font-size:26px;font-weight:700;line-height:1.15}.ds-w{font-size:13px;font-weight:500;opacity:.85}
+.ds-t{background:#fff5;border-radius:12px;padding:6px 12px;font-weight:700;font-size:15px}
+.ds-warn{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:color-mix(in srgb,#f59e0b 16%,transparent);border:1px solid color-mix(in srgb,#f59e0b 45%,transparent);border-radius:14px;padding:9px 12px;font-size:13px;margin-bottom:10px}
+.ds-warn span:nth-child(2){flex:1}.ds-warn button{background:var(--card2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font:600 12.5px var(--font);cursor:pointer}
+.ds-quick{display:flex;gap:7px;margin-bottom:12px}.ds-quick button{flex:1;padding:9px 2px;border-radius:12px;border:1px solid var(--line);background:var(--card2);color:var(--text);font:500 13px var(--font);cursor:pointer}
+.ds-mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-weight:700;font-size:15px}
+.ds-mh button{width:36px;height:36px;border-radius:11px;background:var(--card2);border:1px solid var(--line);color:var(--text);font-size:20px;cursor:pointer}
+.ds-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.ds-h{font-size:11.5px;color:var(--muted);padding:3px 0}
+.ds-cal button{height:40px;border-radius:11px;border:0;background:none;color:var(--text);font:500 14px var(--font);cursor:pointer;position:relative}
+.ds-cal button.off{color:var(--muted);background:repeating-linear-gradient(135deg,transparent 0 4px,color-mix(in srgb,var(--text) 7%,transparent) 4px 8px)}
+.ds-cal button.hol{background:color-mix(in srgb,#f43f5e 16%,transparent);color:#f43f5e;font-weight:700}
+.ds-cal button.used{outline:1.5px dashed var(--acc);outline-offset:-2px;color:var(--acc)}
+.ds-cal button.td{box-shadow:inset 0 0 0 1.5px var(--muted)}
+.ds-cal button.sel{background:var(--grad);color:#04281a;font-weight:700;box-shadow:0 4px 12px #22c55e55;outline:0}
+.ds-leg{display:flex;gap:12px;font-size:11px;color:var(--muted);margin:8px 0 10px;flex-wrap:wrap}.ds-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:4px;vertical-align:-1px}
+.ds-leg .h{background:#f43f5e66}.ds-leg .o{background:repeating-linear-gradient(135deg,#999 0 2px,transparent 2px 4px)}.ds-leg .u{border:1.5px dashed var(--acc)}
+.ds-tm{display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap}
+.ds-tm button{padding:8px 10px;border-radius:11px;border:1px solid var(--line);background:var(--card2);color:var(--text);font:500 13px var(--font);cursor:pointer}
+.ds-tm button.on{background:var(--grad);color:#04281a;border-color:transparent;font-weight:700}
+.ds-tm input{flex:1;min-width:92px}
+.ds-sc{margin-bottom:10px}
+.ds-opt{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;border:1.5px solid var(--line);margin-bottom:6px;background:var(--card2);cursor:pointer}
+.ds-opt.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 10%,var(--card2))}
+.ds-opt i{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);flex:none}.ds-opt.on i{border-color:var(--acc);background:var(--acc);box-shadow:inset 0 0 0 3px var(--card2)}
+.ds-opt b{display:block;font-size:14px;font-weight:600}.ds-opt small{color:var(--muted);font-size:12px}
+.ds-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ds-acts button{padding:12px;border-radius:13px;border:1px solid var(--line);background:var(--card2);color:var(--text);font:500 13.5px var(--font);cursor:pointer}
+.ds-acts .pri{grid-column:1/3;background:var(--grad);color:#04281a;font-weight:700;border:0;font-size:15px}.ds-acts .del{color:#f43f5e}
 </style>
 </head>
 <body>
@@ -314,7 +355,7 @@ table.rot th .dt{display:block;margin:3px 0 0;background:#fff2;color:inherit}
 
 <script>
 'use strict';
-const APP={name:'Tirage_Smart',ver:'1.4.0',date:'2026-11-09',dev:'Delbaz Mohammed · Delbaz _EPS'};
+const APP={name:'Tirage_Smart',ver:'1.5.0',date:'2026-11-09',dev:'Delbaz Mohammed · Delbaz _EPS'};
 /* ================= i18n ================= */
 const I18N={
 ar:{app:'قرعة ذكية',tabList:'القائمة',tabDraw:'القرعة',tabHist:'السجل',tabSet:'الإعدادات',
@@ -337,7 +378,7 @@ copy:'نسخ',share:'مشاركة',pdf:'PDF',big:'عرض كبير',copied:'تم 
 delConfirm:'مسح كل البيانات؟',discardConfirm:'القائمة الحالية غير محفوظة، متابعة؟',empty:'لا يوجد سجل',del:'حذف',cancel:'إلغاء',save:'حفظ',
 edit:'تعديل التلميذ',fullName:'الاسم الكامل',gender:'الجنس',nd:'غير محدد',level:'المستوى',lvNone:'—',status:'الحالة',
 impTitle:'معاينة الاستيراد',impAdd:'إضافة للقائمة',impReplace:'استبدال القائمة',impNone:'لم يُعثر على أسماء في الملف',impFail:'تعذّرت قراءة الملف',impReading:'جارٍ قراءة الملف...',impOcr:'جارٍ التعرف على النص (قد يستغرق دقيقة)...',impDup:'مكرر مستبعد',impSel:'محدد',docOld:'صيغة .doc القديمة غير مدعومة، احفظ الملف بصيغة .docx',pasteFail:'تعذّر الوصول للحافظة، الصق في الحقل مباشرة',added:'أُضيف',clipboard:'الحافظة',
-setAppearance:'المظهر',thAuto:'تلقائي',thLight:'نهاري',thDark:'ليلي',setSound:'الصوت والنطق',setHdr:'ترويسة وثائق PDF',hdrTeacher:'الأستاذ',hdrSchool:'المؤسسة',hdrSeason:'الموسم الدراسي',hdrSup:'الناظر',hdrDir:'المدير',hdrNote:'تظهر هذه المعلومات في أعلى ملف PDF، وتحت النتيجة خانات التوقيع (الأستاذ، الناظر، المدير).',setAbout:'حول التطبيق',aboutDev:'المطور',aboutVer:'النسخة',aboutDate:'تاريخ الإصدار',whatsNew:'ما الجديد',dtLabel:'التواريخ',dtOn:'تحديد تواريخ',dtStart:'تاريخ البداية',dtTime:'الوقت (اختياري)',dtHours:'كل ساعات',dtDays:'كل أيام',dtWeeks:'كل أسابيع',dtWd:'يوم محدد',dtEvery:'كل',dtSkip:'تخطي هذه الأيام',dtOnDays:'الأيام المطلوبة (يتناوب التوزيع عليها)',dtSpeak:'نطق التاريخ مع الاسم',dtRedo:'إعادة توزيع التواريخ',dtEdit:'تعديل التاريخ',dtClear:'حذف',dtSave:'حفظ',dtCal:'إضافة إلى تقويم الهاتف',dtApplies:'تُطبَّق التواريخ على الترتيب والأفواج والتناوب.',dtHour:'ساعة',dtDay:'يوم',dtWeek:'أسبوع',wdays:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],months:['جانفي','فيفري','مارس','أفريل','ماي','جوان','جويلية','أوت','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],atHour:'الساعة',mRot:'تناوب',stLabel:'الورشات / المحطات',addSt:'+ ورشة',stName:'اسم الورشة',rotDur:'مدة كل دورة (دقيقة، 0 = بدون)',rotHint:'عدد الأفواج = عدد الورشات، ويمرّ كل فوج على كل الورشات بالتناوب.',round:'الدورة',rotTitle:'تناوب الورشات',rotTable:'جدول التناوب',gTeams:'أسماء وألوان فرق',gCap:'قائد عشوائي لكل فوج',team:'الفريق',captain:'قائد',min:'د',needSt:'أضف ورشتين على الأقل',teamNames:['الأحمر','الأزرق','الأخضر','الأصفر','البرتقالي','البنفسجي','الوردي','التركوازي'],addRole:'+ دور جديد',roleName:'اسم الدور',pinBtn:'تعيين مباشر',direct:'مباشر',rAll:'وزّع الجميع على الأدوار (وإلا يبقى الباقون بدون دور)',rExe:'إشراك المعفى في الأدوار',rAbs:'إشراك الغائب في الأدوار',noRole:'بدون دور',pickPeople:'اختر المعيَّنين مباشرة لهذا الدور',done:'تم',download:'تحميل',print:'طباعة',closeB:'إغلاق',repub:'الجمهورية الجزائرية الديمقراطية الشعبية',minis:'وزارة التربية الوطنية',sigTitle:'الإمضاء',rolesHint:'حدّد عدد المقاعد لكل دور. المعيَّنون مباشرة يُستثنون من القرعة.',pinnedTo:'معيَّن في',wnTitle:'ما الجديد في النسخة',gotIt:'حسناً',updReady:'تحديث جديد جاهز',updNow:'تحديث الآن',curVer:'النسخة الحالية',olderVer:'النسخ السابقة'},
+setAppearance:'المظهر',thAuto:'تلقائي',thLight:'نهاري',thDark:'ليلي',setSound:'الصوت والنطق',setHdr:'ترويسة وثائق PDF',hdrTeacher:'الأستاذ',hdrSchool:'المؤسسة',hdrSeason:'الموسم الدراسي',hdrSup:'الناظر',hdrDir:'المدير',hdrNote:'تظهر هذه المعلومات في أعلى ملف PDF، وتحت النتيجة خانات التوقيع (الأستاذ، الناظر، المدير).',setAbout:'حول التطبيق',aboutDev:'المطور',aboutVer:'النسخة',aboutDate:'تاريخ الإصدار',whatsNew:'ما الجديد',dtLabel:'التواريخ',dtOn:'تحديد تواريخ',dtStart:'تاريخ البداية',dtTime:'الوقت (اختياري)',dtHours:'كل ساعات',dtDays:'كل أيام',dtWeeks:'كل أسابيع',dtWd:'يوم محدد',dtEvery:'كل',dtSkip:'تخطي هذه الأيام',dtOnDays:'الأيام المطلوبة (يتناوب التوزيع عليها)',dtSpeak:'نطق التاريخ مع الاسم',dtRedo:'إعادة حساب التواريخ',dtEdit:'تعديل التاريخ',dtClear:'حذف',dtSave:'حفظ',dtCal:'إضافة إلى تقويم الهاتف',dtApplies:'تُطبَّق التواريخ على الترتيب والأفواج والتناوب.',dtHour:'ساعة',dtDay:'يوم',dtWeek:'أسبوع',wdays:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],months:['جانفي','فيفري','مارس','أفريل','ماي','جوان','جويلية','أوت','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],atHour:'الساعة',mRot:'تناوب',stLabel:'الورشات / المحطات',addSt:'+ ورشة',stName:'اسم الورشة',rotDur:'مدة كل دورة (دقيقة، 0 = بدون)',rotHint:'عدد الأفواج = عدد الورشات، ويمرّ كل فوج على كل الورشات بالتناوب.',round:'الدورة',rotTitle:'تناوب الورشات',rotTable:'جدول التناوب',gTeams:'أسماء وألوان فرق',gCap:'قائد عشوائي لكل فوج',team:'الفريق',captain:'قائد',min:'د',needSt:'أضف ورشتين على الأقل',teamNames:['الأحمر','الأزرق','الأخضر','الأصفر','البرتقالي','البنفسجي','الوردي','التركوازي'],addRole:'+ دور جديد',roleName:'اسم الدور',pinBtn:'تعيين مباشر',direct:'مباشر',rAll:'وزّع الجميع على الأدوار (وإلا يبقى الباقون بدون دور)',rExe:'إشراك المعفى في الأدوار',rAbs:'إشراك الغائب في الأدوار',noRole:'بدون دور',pickPeople:'اختر المعيَّنين مباشرة لهذا الدور',done:'تم',download:'تحميل',print:'طباعة',closeB:'إغلاق',repub:'الجمهورية الجزائرية الديمقراطية الشعبية',minis:'وزارة التربية الوطنية',sigTitle:'الإمضاء',rolesHint:'حدّد عدد المقاعد لكل دور. المعيَّنون مباشرة يُستثنون من القرعة.',pinnedTo:'معيَّن في',wnTitle:'ما الجديد في النسخة',gotIt:'حسناً',updReady:'تحديث جديد جاهز',updNow:'تحديث الآن',curVer:'النسخة الحالية',olderVer:'النسخ السابقة',holTitle:'تخطي العطل',holHint:'أي موعد يقع في عطلة يُنقل إلى أقرب يوم متاح، وتتحرك المواعيد اللاحقة معه.',holFixed:'العطل الوطنية الثابتة',holFixedSub:'1 جانفي · 12 جانفي · 1 ماي · 5 جويلية · 1 نوفمبر (راجعها قبل الاعتماد)',holAdd:'+ إضافة عطلة',holName:'اسم العطلة (مثلاً: عطلة الشتاء)',holFrom:'من',holTo:'إلى',holiday:'عطلة',fixHol:['رأس السنة الميلادية','رأس السنة الأمازيغية','عيد العمال','عيد الاستقلال','ذكرى اندلاع الثورة'],undo:'تراجع',undone:'تم التراجع',nothingUndo:'لا شيء للتراجع عنه',dtToday:'اليوم',dtTomorrow:'غداً',dtPlusW:'+ أسبوع',dtPlusM:'+ شهر',dtNoTime:'بدون وقت',dtOnly:'هذا الموعد فقط',dtFollow:'هذا الموعد وما بعده',dtScope:'تطبيق التغيير على',dtPost:'تأجيل لأقرب يوم متاح',dtHolWarn:'هذا اليوم ضمن العطل',dtOffWarn:'هذا اليوم من الأيام المتخطاة',legHol:'عطلة',legOff:'يوم متخطّى',legUsed:'موعد آخر',noDate:'بدون تاريخ',rankOf:'الترتيب',icsTitle:'ملف التقويم جاهز',icsHow:'نُزّل الملف tirage-smart.ics. افتحه من إشعار التنزيل أو من مجلد «التنزيلات» ثم اختر تطبيق «التقويم» لإضافة الأحداث.',uClear:'تم مسح القائمة',uList:'تم حذف القائمة المحفوظة',uHist:'تم مسح السجل',uHdel:'تم حذف العنصر',uDrawn:'تم تصفير المسحوبين',uDt:'تم تعديل التاريخ',uRedo:'أُعيد حساب التواريخ',uNew:'قائمة جديدة',uPerson:'تم حذف الشخص',uImp:'تم استبدال القائمة',uHol:'تم حذف العطلة',uDraw:'نتيجة القرعة'},
 fr:{app:'Tirage Smart',tabList:'Liste',tabDraw:'Tirage',tabHist:'Historique',tabSet:'Réglages',
 curList:'Liste actuelle',unnamed:'Liste sans nom (non enregistrée)',rename:'Renommer',newList:'Nouvelle liste',renamePrompt:'Nouveau nom de la liste',exists:'Ce nom existe déjà',
 addNames:'Ajouter des noms',addPh:'Saisir ou coller les noms (nom complet par ligne)',add:'Ajouter',paste:'Coller',importFile:'Importer un fichier',importHint:'Excel · Word · PDF (même scanné) · Image · TXT · ou partage depuis Notes',
@@ -358,7 +399,7 @@ copy:'Copier',share:'Partager',pdf:'PDF',big:'Affichage XL',copied:'Copié',save
 delConfirm:'Effacer toutes les données ?',discardConfirm:'La liste actuelle n’est pas enregistrée, continuer ?',empty:'Aucun historique',del:'Supprimer',cancel:'Annuler',save:'Enregistrer',
 edit:'Modifier l’élève',fullName:'Nom complet',gender:'Sexe',nd:'N.D.',level:'Niveau',lvNone:'—',status:'État',
 impTitle:'Aperçu de l’import',impAdd:'Ajouter à la liste',impReplace:'Remplacer la liste',impNone:'Aucun nom trouvé dans le fichier',impFail:'Lecture du fichier impossible',impReading:'Lecture du fichier...',impOcr:'Reconnaissance du texte (peut durer une minute)...',impDup:'doublons ignorés',impSel:'sélectionnés',docOld:'Le format .doc n’est pas pris en charge, enregistrez en .docx',pasteFail:'Presse-papiers inaccessible, collez dans le champ',added:'ajoutés',clipboard:'Presse-papiers',
-setAppearance:'Apparence',thAuto:'Auto',thLight:'Jour',thDark:'Nuit',setSound:'Son et voix',setHdr:'En-tête des documents PDF',hdrTeacher:'Enseignant',hdrSchool:'Établissement',hdrSeason:'Année scolaire',hdrSup:'Surveillant général',hdrDir:'Directeur',hdrNote:'Ces informations apparaissent en haut du PDF, avec les cases de signature (enseignant, surveillant général, directeur) sous le résultat.',setAbout:'À propos',aboutDev:'Développeur',aboutVer:'Version',aboutDate:'Date de publication',whatsNew:'Nouveautés',dtLabel:'Dates',dtOn:'Attribuer des dates',dtStart:'Date de début',dtTime:'Heure (facultatif)',dtHours:'Toutes les … heures',dtDays:'Tous les … jours',dtWeeks:'Toutes les … semaines',dtWd:'Jour précis',dtEvery:'Tous les',dtSkip:'Jours ignorés',dtOnDays:'Jours souhaités (répartition à tour de rôle)',dtSpeak:'Lire la date avec le nom',dtRedo:'Recalculer les dates',dtEdit:'Modifier la date',dtClear:'Supprimer',dtSave:'Enregistrer',dtCal:'Ajouter au calendrier du téléphone',dtApplies:'Les dates s’appliquent à l’ordre, aux groupes et à la rotation.',dtHour:'heure(s)',dtDay:'jour(s)',dtWeek:'semaine(s)',wdays:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],months:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],atHour:'à',mRot:'Rotation',stLabel:'Ateliers / stations',addSt:'+ Atelier',stName:'Nom de l’atelier',rotDur:'Durée de chaque rotation (min, 0 = aucune)',rotHint:'Nombre de groupes = nombre d’ateliers ; chaque groupe passe par tous les ateliers.',round:'Rotation',rotTitle:'Rotation des ateliers',rotTable:'Tableau de rotation',gTeams:'Noms et couleurs d’équipes',gCap:'Capitaine aléatoire par groupe',team:'Équipe',captain:'capitaine',min:'min',needSt:'Ajoutez au moins deux ateliers',teamNames:['Rouge','Bleu','Vert','Jaune','Orange','Violet','Rose','Turquoise'],addRole:'+ Nouveau rôle',roleName:'Nom du rôle',pinBtn:'Affectation directe',direct:'direct',rAll:'Répartir tout le monde sur les rôles (sinon les autres restent sans rôle)',rExe:'Inclure les dispensés',rAbs:'Inclure les absents',noRole:'Sans rôle',pickPeople:'Choisir les personnes affectées directement à ce rôle',done:'OK',download:'Télécharger',print:'Imprimer',closeB:'Fermer',repub:'République Algérienne Démocratique et Populaire',minis:'Ministère de l’Éducation Nationale',sigTitle:'Signatures',rolesHint:'Fixez le nombre de places par rôle. Les personnes affectées directement sont exclues du tirage.',pinnedTo:'affecté à',wnTitle:'Nouveautés de la version',gotIt:'OK',updReady:'Mise à jour disponible',updNow:'Mettre à jour',curVer:'Version actuelle',olderVer:'Versions précédentes'}
+setAppearance:'Apparence',thAuto:'Auto',thLight:'Jour',thDark:'Nuit',setSound:'Son et voix',setHdr:'En-tête des documents PDF',hdrTeacher:'Enseignant',hdrSchool:'Établissement',hdrSeason:'Année scolaire',hdrSup:'Surveillant général',hdrDir:'Directeur',hdrNote:'Ces informations apparaissent en haut du PDF, avec les cases de signature (enseignant, surveillant général, directeur) sous le résultat.',setAbout:'À propos',aboutDev:'Développeur',aboutVer:'Version',aboutDate:'Date de publication',whatsNew:'Nouveautés',dtLabel:'Dates',dtOn:'Attribuer des dates',dtStart:'Date de début',dtTime:'Heure (facultatif)',dtHours:'Toutes les … heures',dtDays:'Tous les … jours',dtWeeks:'Toutes les … semaines',dtWd:'Jour précis',dtEvery:'Tous les',dtSkip:'Jours ignorés',dtOnDays:'Jours souhaités (répartition à tour de rôle)',dtSpeak:'Lire la date avec le nom',dtRedo:'Recalculer les dates',dtEdit:'Modifier la date',dtClear:'Supprimer',dtSave:'Enregistrer',dtCal:'Ajouter au calendrier du téléphone',dtApplies:'Les dates s’appliquent à l’ordre, aux groupes et à la rotation.',dtHour:'heure(s)',dtDay:'jour(s)',dtWeek:'semaine(s)',wdays:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],months:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],atHour:'à',mRot:'Rotation',stLabel:'Ateliers / stations',addSt:'+ Atelier',stName:'Nom de l’atelier',rotDur:'Durée de chaque rotation (min, 0 = aucune)',rotHint:'Nombre de groupes = nombre d’ateliers ; chaque groupe passe par tous les ateliers.',round:'Rotation',rotTitle:'Rotation des ateliers',rotTable:'Tableau de rotation',gTeams:'Noms et couleurs d’équipes',gCap:'Capitaine aléatoire par groupe',team:'Équipe',captain:'capitaine',min:'min',needSt:'Ajoutez au moins deux ateliers',teamNames:['Rouge','Bleu','Vert','Jaune','Orange','Violet','Rose','Turquoise'],addRole:'+ Nouveau rôle',roleName:'Nom du rôle',pinBtn:'Affectation directe',direct:'direct',rAll:'Répartir tout le monde sur les rôles (sinon les autres restent sans rôle)',rExe:'Inclure les dispensés',rAbs:'Inclure les absents',noRole:'Sans rôle',pickPeople:'Choisir les personnes affectées directement à ce rôle',done:'OK',download:'Télécharger',print:'Imprimer',closeB:'Fermer',repub:'République Algérienne Démocratique et Populaire',minis:'Ministère de l’Éducation Nationale',sigTitle:'Signatures',rolesHint:'Fixez le nombre de places par rôle. Les personnes affectées directement sont exclues du tirage.',pinnedTo:'affecté à',wnTitle:'Nouveautés de la version',gotIt:'OK',updReady:'Mise à jour disponible',updNow:'Mettre à jour',curVer:'Version actuelle',olderVer:'Versions précédentes',holTitle:'Ignorer les jours fériés',holHint:'Une date tombant un jour férié est reportée au prochain jour disponible, et les dates suivantes suivent.',holFixed:'Jours fériés nationaux fixes',holFixedSub:'1 janv. · 12 janv. · 1 mai · 5 juil. · 1 nov. (à vérifier)',holAdd:'+ Ajouter un congé',holName:'Nom (ex. vacances d’hiver)',holFrom:'Du',holTo:'Au',holiday:'Férié',fixHol:['Jour de l’An','Yennayer','Fête du Travail','Fête de l’Indépendance','Anniversaire de la Révolution'],undo:'Annuler',undone:'Action annulée',nothingUndo:'Rien à annuler',dtToday:'Aujourd’hui',dtTomorrow:'Demain',dtPlusW:'+ 1 sem.',dtPlusM:'+ 1 mois',dtNoTime:'Sans heure',dtOnly:'Cette date seulement',dtFollow:'Cette date et les suivantes',dtScope:'Appliquer le changement à',dtPost:'Reporter au prochain jour disponible',dtHolWarn:'Ce jour est férié',dtOffWarn:'Ce jour fait partie des jours ignorés',legHol:'Férié',legOff:'Jour ignoré',legUsed:'Autre date',noDate:'Sans date',rankOf:'Rang',icsTitle:'Fichier calendrier prêt',icsHow:'Le fichier tirage-smart.ics a été téléchargé. Ouvrez-le depuis la notification ou le dossier « Téléchargements », puis choisissez l’application « Calendrier ».',uClear:'Liste effacée',uList:'Liste supprimée',uHist:'Historique effacé',uHdel:'Élément supprimé',uDrawn:'Tirés réinitialisés',uDt:'Date modifiée',uRedo:'Dates recalculées',uNew:'Nouvelle liste',uPerson:'Personne supprimée',uImp:'Liste remplacée',uHol:'Congé supprimé',uDraw:'Résultat du tirage'}
 };
 const PAL=['#22c55e','#38bdf8','#f59e0b','#f472b6','#a78bfa','#fb7185','#2dd4bf','#facc15','#60a5fa','#f97316'];
 const PALD=['#16a34a','#0284c7','#d97706','#db2777','#7c3aed','#e11d48','#0d9488','#ca8a04','#2563eb','#ea580c'];
@@ -370,8 +411,9 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const LS='tirage_smart_v1';
-const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',rl:[],sl:[],dt:{on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6]},dtSpeak:false,rDur:0,gTeams:false,gCap:false,rAll:false,rExe:false,rAbs:false,hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
+const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',rl:[],sl:[],dt:{on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6],hf:false,hol:[]},dtSpeak:false,rDur:0,gTeams:false,gCap:false,rAll:false,rExe:false,rAbs:false,hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
 const CHANGELOG=[
+ {v:'1.5.0',d:'2026-11-09',ar:['نافذة تعديل التاريخ بتصميم جديد: تقويم شهري، أزرار سريعة (اليوم، غداً، +أسبوع، +شهر) وأوقات جاهزة','تخطي العطل: العطل الوطنية الثابتة (اختياري) وعطلك الخاصة بتاريخ أو فترة، والمواعيد تنتقل تلقائياً إلى أقرب يوم متاح','عند تغيير موعد: اختر «هذا الموعد فقط» أو «هذا الموعد وما بعده»، مع تنبيه ⚠ وزر «تأجيل لأقرب يوم متاح»','زر «تراجع» (حتى 10 خطوات) بعد مسح القائمة أو حذف قائمة/سجل/شخص، وتصفير المسحوبين، وإعادة القرعة، وتعديل التواريخ','«إضافة إلى تقويم الهاتف» عبر نافذة المشاركة مباشرة، مع شرح إن لم يدعمها المتصفح','«إعادة توزيع التواريخ» أصبحت «إعادة حساب التواريخ» (قابلة للتراجع)'],fr:['Nouvelle fenêtre de modification de date : calendrier mensuel, raccourcis (aujourd’hui, demain, +1 sem., +1 mois) et heures prêtes','Jours fériés ignorés : fériés nationaux fixes (optionnel) et congés personnalisés (date ou période), report automatique au prochain jour disponible','Lors d’un changement : « cette date seulement » ou « cette date et les suivantes », avec alerte ⚠ et bouton de report','Bouton « Annuler » (10 étapes) après effacement de liste, suppression de liste/historique/personne, réinitialisation des tirés, nouveau tirage et modification des dates','« Ajouter au calendrier » via le partage direct, avec explication si le navigateur ne le gère pas','« Redistribuer les dates » devient « Recalculer les dates » (annulable)']},
  {v:'1.4.0',d:'2026-11-09',ar:['تواريخ اختيارية للترتيب والأفواج والتناوب: كل ساعات / أيام / أسابيع، أو يوم محدد (كل سبت، أحد وأربعاء…) مع تخطي أيام معيّنة','تعديل أي تاريخ يدوياً بالضغط عليه، وإعادة التوزيع التلقائي','يظهر التاريخ في الشاشة والنسخ والعرض الكبير وPDF، ولا يظهر إن لم يُفعَّل','زر «إضافة إلى تقويم الهاتف» (ملف .ics) ونطق التاريخ اختيارياً'],fr:['Dates facultatives pour l’ordre, les groupes et la rotation : toutes les x heures / jours / semaines, ou jour précis (chaque samedi, dimanche et mercredi…) avec jours ignorés','Modification manuelle de chaque date et recalcul automatique','Date visible à l’écran, dans les copies, l’affichage plein écran et le PDF, absente si désactivée','Bouton « Ajouter au calendrier » (.ics) et lecture vocale facultative de la date']},
  {v:'1.3.0',d:'2026-10-14',ar:['وضع جديد «تناوب»: توزيع الأفواج على الورشات مع جدول دورات ومدة كل دورة','أفواج بأسماء وألوان فرق (الأحمر، الأزرق…) مع قائد عشوائي لكل فوج','PDF في صفحة واحدة تلقائياً (صفحتان فقط عند الأعداد الكبيرة جداً)'],fr:['Nouveau mode « Rotation » : groupes répartis sur des ateliers avec tableau et durée','Groupes avec noms et couleurs d’équipes (Rouge, Bleu…) et capitaine aléatoire','PDF sur une seule page automatiquement (deux pages seulement pour de très grands effectifs)']},
  {v:'1.2.0',d:'2026-10-14',ar:['الأدوار: عدد الأشخاص لكل دور، وتعيين مباشر لأشخاص معيّنين (يُستثنون من القرعة)','مفتاح «وزّع الجميع على الأدوار» وخيارا إشراك المعفى والغائب','PDF: ترويسة رسمية (الجمهورية الجزائرية الديمقراطية الشعبية · وزارة التربية الوطنية · المؤسسة · السنة الدراسية) وقسم «الإمضاء» في الأسفل','نافذة معاينة PDF بأزرار تحميل · طباعة · إغلاق'],fr:['Rôles : nombre de personnes par rôle, affectation directe (exclus du tirage)','Interrupteur « Répartir tout le monde » et options dispensés / absents','PDF : en-tête officiel (République Algérienne… · Ministère de l’Éducation Nationale · établissement · année scolaire) et zone « Signatures »','Aperçu PDF avec boutons Télécharger · Imprimer · Fermer']},
@@ -381,7 +423,7 @@ const CHANGELOG=[
 ];
 const FRESH=(()=>{try{return !localStorage.getItem(LS)}catch(e){return true}})();
 let S=(()=>{try{return Object.assign(def(),JSON.parse(localStorage.getItem(LS))||{})}catch(e){return def()}})();
-if(!Array.isArray(S.rl))S.rl=[];if(!Array.isArray(S.sl))S.sl=[];S.dt=Object.assign({on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6]},S.dt||{});
+if(!Array.isArray(S.rl))S.rl=[];if(!Array.isArray(S.sl))S.sl=[];S.dt=Object.assign({on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6],hf:false,hol:[]},S.dt||{});if(!Array.isArray(S.dt.hol))S.dt.hol=[];
 if(!S.rl.length&&S.roles)S.roles.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(n=>S.rl.push({id:uid(),n,c:1,fx:[]}));
 S.hdr=Object.assign(def().hdr,S.hdr||{});
 (function migrate(){
@@ -455,12 +497,19 @@ async function speakAll(lines){const id=++SPK;for(const l of lines){if(id!==SPK)
 const pad2=n=>String(n).padStart(2,'0');
 const isoOf=d=>`${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
 const parseISO=x=>{const[a,b,c]=x.split('-').map(Number);return new Date(a,b-1,c)};
+const FIXH=['01-01','01-12','05-01','07-05','11-01'];
+function holName(iso){const D=S.dt;if(!iso)return'';if(D.hf){const i=FIXH.indexOf(iso.slice(5));if(i>=0)return t('fixHol')[i]}
+  for(const h of D.hol||[]){if(h.a&&iso>=h.a&&iso<=(h.b&&h.b>=h.a?h.b:h.a))return h.n||t('holiday')}return''}
+function dateOK(iso){const d=parseISO(iso),c=S.dt;if(holName(iso))return false;if(c.mode==='wd')return !c.wd.length||c.wd.includes(d.getDay());if(c.mode==='days'||c.mode==='weeks')return !c.skip.includes(d.getDay());return true}
+function addDays(iso,n){const d=parseISO(iso);d.setDate(d.getDate()+n);return isoOf(d)}
+function nextOK(iso){let x=iso,g=0;while(!dateOK(x)&&g++<800)x=addDays(x,1);return g>=800?iso:x}
+const dayDiff=(a,b)=>Math.round((parseISO(a)-parseISO(b))/864e5);
 function genDates(count){
   const c=S.dt;if(!c.start)c.start=isoOf(new Date());
   const out=[],n=Math.max(1,Number(c.n)||1);let cur=parseISO(c.start);const tm=c.time||'';
-  const ok=d=>!c.skip.includes(d.getDay()),nextOk=d=>{let g=0;while(!ok(d)&&g++<8)d.setDate(d.getDate()+1)};
-  if(c.mode==='wd'){const set=c.wd.length?c.wd:[cur.getDay()];let g=0;while(out.length<count&&g++<5000){if(set.includes(cur.getDay()))out.push({d:isoOf(cur),t:tm});cur.setDate(cur.getDate()+1)}}
-  else if(c.mode==='hours'){const[hh,mm]=(tm||'08:00').split(':').map(Number);let x=new Date(cur.getFullYear(),cur.getMonth(),cur.getDate(),hh,mm);for(let i=0;i<count;i++){out.push({d:isoOf(x),t:`${pad2(x.getHours())}:${pad2(x.getMinutes())}`});x=new Date(x.getTime()+n*3600000)}}
+  const ok=d=>!c.skip.includes(d.getDay())&&!holName(isoOf(d)),nextOk=d=>{let g=0;while(!ok(d)&&g++<800)d.setDate(d.getDate()+1)};
+  if(c.mode==='wd'){const set=c.wd.length?c.wd:[cur.getDay()];let g=0;while(out.length<count&&g++<5000){if(set.includes(cur.getDay())&&!holName(isoOf(cur)))out.push({d:isoOf(cur),t:tm});cur.setDate(cur.getDate()+1)}}
+  else if(c.mode==='hours'){const[hh,mm]=(tm||'08:00').split(':').map(Number);let x=new Date(cur.getFullYear(),cur.getMonth(),cur.getDate(),hh,mm);for(let i=0;i<count;i++){let g=0;while(holName(isoOf(x))&&g++<800)x=new Date(x.getTime()+86400000);out.push({d:isoOf(x),t:`${pad2(x.getHours())}:${pad2(x.getMinutes())}`});x=new Date(x.getTime()+n*3600000)}}
   else{const step=(c.mode==='weeks'?7:1)*n;nextOk(cur);for(let i=0;i<count;i++){out.push({d:isoOf(cur),t:tm});cur=new Date(cur);cur.setDate(cur.getDate()+step);nextOk(cur)}}
   return out}
 const fmtDT=o=>{if(!o)return'';const d=parseISO(o.d);return `${t('wdays')[d.getDay()]} ${pad2(d.getDate())}/${pad2(d.getMonth()+1)}/${d.getFullYear()}${o.t?' '+o.t:''}`};
@@ -620,6 +669,9 @@ function renderDraw(){
         h+=`<div class="rrow" style="border:0;padding:4px 0;background:none"><span>${t('dtEvery')}</span><div class="mini"><button class="sq" data-a="dtn" data-d="-1">−</button><output>${D.n}</output><button class="sq" data-a="dtn" data-d="1">+</button></div><span>${u}</span></div>`}
       if(D.mode==='days'||D.mode==='weeks')h+=`<div class="hint">${t('dtSkip')}</div><div class="chips">${ORD.map(i=>`<button class="chip ${D.skip.includes(i)?'on':''}" data-a="dtskip" data-v="${i}">${W[i]}</button>`).join('')}</div>`;
       if(D.mode==='wd')h+=`<div class="hint">${t('dtOnDays')}</div><div class="chips">${ORD.map(i=>`<button class="chip ${D.wd.includes(i)?'on':''}" data-a="dtwd" data-v="${i}">${W[i]}</button>`).join('')}</div>`;
+      h+=`<div class="lbl">${t('holTitle')}</div><div class="hint" style="margin:0 0 4px">${t('holHint')}</div><div class="sw"><span>${t('holFixed')}<br><small class="hint">${t('holFixedSub')}</small></span><input type="checkbox" data-dthf="1" ${D.hf?'checked':''}></div>`;
+      h+=D.hol.map(x=>`<div class="holrow"><div style="display:flex;gap:8px"><input type="text" data-hn="${x.id}" value="${esc(x.n)}" placeholder="${esc(t('holName'))}"><button class="btn sm" data-a="holdel" data-v="${x.id}">×</button></div><div class="dtrow"><label>${t('holFrom')}<input type="date" data-hd="${x.id}:a" value="${x.a||''}"></label><label>${t('holTo')}<input type="date" data-hd="${x.id}:b" value="${x.b||x.a||''}"></label></div></div>`).join('');
+      h+=`<button class="btn sm" data-a="holadd" style="margin:4px 0 8px">${t('holAdd')}</button>`;
       h+=chk('dtSpeak',t('dtSpeak'))+`</div>`}
     else h+=`<div class="hint">${t('dtApplies')}</div>`}
   h+=`<div style="margin-top:6px">`+chk('speak',t('speakL'))+chk('sound',t('sound'))+chk('vibe',t('vibe'))+`</div>`;
@@ -779,6 +831,7 @@ function renderImp(){
   impCount();
 }
 function finishImport(replace){
+  if(replace&&S.people.length)snap(t('uImp'));
   const ents=IMP.ents.filter(e=>e.on);const r=addEntries(ents,replace);closeModal();S.tab='list';save();renderAll();
   toast(`${r.added} ${t('added')}${r.dup?` · ${r.dup} ${t('impDup')}`:''}`)}
 
@@ -829,13 +882,13 @@ function makeGroups(pool,ng,bG,bL){
 function paintResult(entry,fx){
   const{mode,title,blocks}=entry;
   const r=$('#result');r.style.display='block';
-  const dtl=(o,v)=>`<span class="dt" data-a="dtedit" data-v="${v}">${esc(fmtDT(o))}</span>`;
+  const dtl=(o,v)=>{const hn=holName(o.d);return `<span class="dt${hn?' hol':''}" data-a="dtedit" data-v="${v}">${hn?'⚠ ':''}${esc(fmtDT(o))}</span>`};
   let h=`<h3>${esc(title)}</h3>`;
   if(isGrouped({mode,blocks})){h+='<div class="groups">'+blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="gcard" style="--gc:${bc(b,i)};animation-delay:${i*90}ms"><h4>${esc(b.h)} <small>(${b.items.length})</small>${b.date?dtl(b.date,i+':g'):''}</h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))}</div>`).join('')}</div>`).join('')+'</div>'}
   else h+=blocks.map((b,bi)=>`<div class="items">${b.items.map((x,i)=>`<div class="it" style="--c:${PAL[i%PAL.length]};animation-delay:${i*60}ms"><em>${b.num?i+1:'•'}</em>${esc(itx(b,i))}${b.dates&&b.dates[i]?dtl(b.dates[i],bi+':'+i):''}</div>`).join('')}</div>`).join('');
   if(entry.rot)h+=rotHTML(entry);
   const hasDt=blocks.some(b=>b.date||(b.dates&&b.dates.some(Boolean)))||(entry.rot&&entry.rot.dates);
-  h+=`<div class="acts"><button class="btn" data-a="speakres">🔊 ${t('speakBtn')}</button><button class="btn" data-a="copyres">${t('copy')}</button><button class="btn" data-a="shareres">${t('share')}</button><button class="btn" data-a="pdfres">${t('pdf')}</button><button class="btn" data-a="bigres">${t('big')}</button>${hasDt?`<button class="btn" data-a="dtcal">📅 ${t('dtCal')}</button>`:''}${S.dt.on&&['order','groups','rotation'].includes(mode)?`<button class="btn" data-a="dtredo">${t('dtRedo')}</button>`:''}</div>`;
+  h+=`<div class="acts"><button class="btn" data-a="speakres">🔊 ${t('speakBtn')}</button><button class="btn" data-a="copyres">${t('copy')}</button><button class="btn" data-a="shareres">${t('share')}</button><button class="btn" data-a="pdfres">${t('pdf')}</button><button class="btn" data-a="bigres">${t('big')}</button>${hasDt?`<button class="btn" data-a="dtcal">📅 ${t('dtCal')}</button>`:''}${S.dt.on&&['order','groups','rotation'].includes(mode)?`<button class="btn" data-a="dtredo">${t('dtRedo')}</button>`:''}${UNDO.length?`<button class="btn" data-a="undo">↶ ${t('undo')}</button>`:''}</div>`;
   r.innerHTML=h;renderHist();
   if(fx){r.scrollIntoView({behavior:'smooth',block:'nearest'});confetti();winSound()}}
 function finish(mode,title,blocks,extra){
@@ -850,29 +903,86 @@ function buildICS(e){
   if(e.mode==='order'){const b=e.blocks[0];b.items.forEach((x,i)=>{if(b.dates&&b.dates[i])ev.push({s:`${e.title}: ${x}`,d:'',o:b.dates[i]})})}
   else if(e.mode==='groups')G.forEach(b=>{if(b.date)ev.push({s:`${e.title}: ${b.h}`,d:b.items.join('\n'),o:b.date})});
   else if(e.mode==='rotation'&&e.rot.dates){const st=e.rot.st,n=st.length;st.forEach((_,r)=>{if(e.rot.dates[r])ev.push({s:`${e.title}: ${t('round')} ${r+1}`,d:G.map((b,g)=>`${b.h} → ${st[(g+r)%n]}`).join('\n'),o:e.rot.dates[r]})})}
-  const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,''),L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Delbaz _EPS//Tirage_Smart//EN','CALSCALE:GREGORIAN'];
+  const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,''),L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Delbaz _EPS//Tirage_Smart//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
   ev.forEach((x,i)=>{const d0=x.o.d.replace(/-/g,'');L.push('BEGIN:VEVENT',`UID:${e.ts}-${i}@tirage-smart`,`DTSTAMP:${stamp}`,`SUMMARY:${esc2(x.s)}`);
     if(x.d)L.push(`DESCRIPTION:${esc2(x.d)}`);
     if(x.o.t){const[hh,mm]=x.o.t.split(':').map(Number),st=parseISO(x.o.d);st.setHours(hh,mm);const en=new Date(st.getTime()+3600000),f=q=>`${q.getFullYear()}${pad2(q.getMonth()+1)}${pad2(q.getDate())}T${pad2(q.getHours())}${pad2(q.getMinutes())}00`;L.push(`DTSTART:${f(st)}`,`DTEND:${f(en)}`);L.push('BEGIN:VALARM','ACTION:DISPLAY',`DESCRIPTION:${esc2(x.s)}`,'TRIGGER:-PT30M','END:VALARM')}
     else{const nx=parseISO(x.o.d);nx.setDate(nx.getDate()+1);L.push(`DTSTART;VALUE=DATE:${d0}`,`DTEND;VALUE=DATE:${isoOf(nx).replace(/-/g,'')}`);L.push('BEGIN:VALARM','ACTION:DISPLAY',`DESCRIPTION:${esc2(x.s)}`,'TRIGGER:-PT15H','END:VALARM')}
     L.push('END:VEVENT')});
   L.push('END:VCALENDAR');return L.join('\r\n')}
+async function shareICS(e){
+  const txt=buildICS(e);
+  try{const f=new File([txt],'tirage-smart.ics',{type:'text/calendar'});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:e.title});return}}
+  catch(err){if(err&&err.name==='AbortError')return}
+  downloadICS(e);
+  modal(`<h3>📅 ${t('icsTitle')}</h3><div class="hint" style="font-size:14px;line-height:1.9">${t('icsHow')}</div><div class="row" style="margin-top:14px"><button class="btn pri" data-a="close">${t('gotIt')}</button></div>`)}
 function downloadICS(e){
   const blob=new Blob([buildICS(e)],{type:'text/calendar;charset=utf-8'}),a=document.createElement('a');
   a.href=URL.createObjectURL(blob);a.download='tirage-smart.ics';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}
+/* ---- undo ---- */
+const UNDO=[];let UBT=0;
+function snap(label,o){o=o||{};try{
+  const x={people:S.people,drawn:S.drawn,lists:S.lists,curList:S.curList,history:S.history};if(o.hol)x.hol=S.dt.hol;
+  UNDO.push({l:label,s:JSON.stringify(x),last:window.LAST?window.LAST.ts:0});if(UNDO.length>10)UNDO.shift()}catch(e){}
+  if(!o.quiet)showUbar(label)}
+function showUbar(label){
+  let b=$('#ubar');if(!b){b=document.createElement('div');b.id='ubar';document.body.appendChild(b)}
+  b.innerHTML=`<span>${esc(label)}</span><button data-a="undo">↶ ${t('undo')}</button>`;b.classList.add('on');
+  clearTimeout(UBT);UBT=setTimeout(hideUbar,6500)}
+function hideUbar(){const b=$('#ubar');if(b)b.classList.remove('on')}
+function doUndo(){
+  const u=UNDO.pop();hideUbar();if(!u)return toast(t('nothingUndo'));
+  const o=JSON.parse(u.s);S.people=o.people;S.drawn=o.drawn;S.lists=o.lists;S.curList=o.curList;S.history=o.history;if(o.hol)S.dt.hol=o.hol;
+  window.LAST=S.history.find(h=>h.ts===u.last)||null;save();closeModal();renderAll();
+  if(window.LAST)paintResult(window.LAST,false);else $('#result').style.display='none';
+  toast(t('undone'))}
 let DTE=null;
+function dtSlots(e,v){const[bi,k]=v.split(':');let L=[],idx=0;
+  if(bi==='r'){e.rot.dates=e.rot.dates||[];L=e.rot.st.map((_,i)=>({g:()=>e.rot.dates[i]||null,s:o=>{e.rot.dates[i]=o},n:`${t('round')} ${i+1}`}));idx=Number(k)}
+  else if(k==='g'){const G=e.blocks.filter(b=>!b.rotb);L=G.map(b=>({g:()=>b.date||null,s:o=>{b.date=o},n:b.h}));idx=Number(bi)}
+  else{const b=e.blocks[Number(bi)];L=b.items.map((x,i)=>({g:()=>(b.dates&&b.dates[i])||null,s:o=>{b.dates=b.dates||[];b.dates[i]=o},n:itx(b,i)}));idx=Number(k)}
+  return{L,idx}}
 function showDtEdit(v){
-  const e=window.LAST;if(!e)return;const[bi,k]=v.split(':');let o=null;
-  if(bi==='r')o=e.rot&&e.rot.dates&&e.rot.dates[Number(k)];
-  else{const b=e.blocks[Number(bi)];o=k==='g'?b.date:b.dates&&b.dates[Number(k)]}
-  DTE=v;
-  modal(`<h3>${t('dtEdit')}</h3><label class="hint">${t('dtStart')}<input type="date" id="dtD" value="${o?o.d:''}"></label><label class="hint">${t('dtTime')}<input type="time" id="dtT" value="${o&&o.t?o.t:''}"></label><div class="row" style="margin-top:14px"><button class="btn pri" data-a="dtsave">${t('dtSave')}</button><button class="btn" data-a="dtclr">${t('dtClear')}</button></div>`)}
+  const e=window.LAST;if(!e)return;const sl=dtSlots(e,v),o=sl.L[sl.idx]&&sl.L[sl.idx].g();
+  DTE={v,sl,orig:o?{d:o.d,t:o.t||''}:null,d:o?o.d:isoOf(new Date()),t:o?(o.t||''):(S.dt.time||''),scope:'one',view:(o?o.d:isoOf(new Date())).slice(0,7)};
+  if(!o)DTE.d='';
+  dtRender(true)}
+function dtRender(first){
+  const X=DTE;if(!X)return;const{L,idx}=X.sl,ar=S.lang==='ar',W=t('wdays'),M=t('months'),sel=X.d,hn=sel?holName(sel):'',off=sel&&!hn&&!dateOK(sel),today=isoOf(new Date());
+  const used=new Set(L.map((q,i)=>{const g=i!==idx&&q.g();return g?g.d:null}).filter(Boolean));
+  const[y,m]=X.view.split('-').map(Number),w0=new Date(y,m-1,1).getDay(),nd=new Date(y,m,0).getDate(),ORD=[6,0,1,2,3,4,5];
+  const HD=ar?['س','ح','ن','ث','ر','خ','ج']:['S','D','L','M','M','J','V'];
+  let cells=HD.map(x=>`<div class="ds-h">${x}</div>`).join('')+'<i></i>'.repeat((w0+1)%7);
+  for(let d=1;d<=nd;d++){const iso=`${y}-${pad2(m)}-${pad2(d)}`,hh=holName(iso),cl=[];
+    if(hh)cl.push('hol');else if(!dateOK(iso))cl.push('off');if(used.has(iso))cl.push('used');if(iso===sel)cl.push('sel');if(iso===today)cl.push('td');
+    cells+=`<button class="${cl.join(' ')}" data-a="dtpick" data-v="${iso}">${d}</button>`}
+  const dd=sel?parseISO(sel):null,big=sel?`${dd.getDate()} ${M[dd.getMonth()]}`:'—',sub=sel?`${W[dd.getDay()]} · ${dd.getFullYear()}`:t('noDate');
+  const prev='‹',next='›';
+  const chip=(val,lab)=>`<button class="${X.t===val?'on':''}" data-a="dttm" data-v="${val}">${lab}</button>`;
+  let h=`<div class="ds-grab"></div><div class="ds-who"><b>${esc(L[idx].n)}</b><span>${t('rankOf')} ${idx+1}/${L.length}</span></div>`+
+   `<div class="ds-big${hn||off?' warn':''}"><div><div class="ds-d">${esc(big)}</div><div class="ds-w">${esc(sub)}</div></div>${X.t?`<div class="ds-t">${esc(X.t)}</div>`:''}</div>`;
+  if(hn||off)h+=`<div class="ds-warn"><span>⚠️</span><span>${hn?t('dtHolWarn')+': <b>'+esc(hn)+'</b>':t('dtOffWarn')}</span><button data-a="dtpost">${t('dtPost')}</button></div>`;
+  h+=`<div class="ds-quick"><button data-a="dtq" data-v="t">${t('dtToday')}</button><button data-a="dtq" data-v="n">${t('dtTomorrow')}</button><button data-a="dtq" data-v="w">${t('dtPlusW')}</button><button data-a="dtq" data-v="m">${t('dtPlusM')}</button></div>`+
+   `<div class="ds-mh"><button data-a="dtmo" data-v="-1">${prev}</button><span>${M[m-1]} ${y}</span><button data-a="dtmo" data-v="1">${next}</button></div><div class="ds-cal">${cells}</div>`+
+   `<div class="ds-leg"><span><i class="h"></i>${t('legHol')}</span><span><i class="o"></i>${t('legOff')}</span><span><i class="u"></i>${t('legUsed')}</span></div>`+
+   `<div class="ds-tm">${chip('',t('dtNoTime'))}${chip('08:00','08:00')}${chip('10:00','10:00')}${chip('14:00','14:00')}<input type="time" data-dtt="1" value="${esc(X.t)}"></div>`;
+  const hasNext=L.slice(idx+1).some(q=>q.g());
+  if(X.orig&&sel&&sel!==X.orig.d&&hasNext){const dl=dayDiff(sel,X.orig.d);
+    h+=`<div class="ds-sc"><div class="hint" style="margin:0 0 6px">${t('dtScope')}</div>`+
+     `<div class="ds-opt${X.scope==='one'?' on':''}" data-a="dtscope" data-v="one"><i></i><b>${t('dtOnly')}</b></div>`+
+     `<div class="ds-opt${X.scope==='all'?' on':''}" data-a="dtscope" data-v="all"><i></i><div><b>${t('dtFollow')}</b><small>${dl>0?'+':''}${dl} ${t('dtDay')}</small></div></div></div>`}
+  h+=`<div class="ds-acts"><button class="pri" data-a="dtsave">${t('dtSave')}</button>${X.orig?`<button class="del" data-a="dtclr">${t('dtClear')}</button>`:''}<button data-a="close">${t('closeB')}</button></div>`;
+  const sh=$('#modal .sheet');
+  if(first||!sh||!sh.querySelector('.ds-grab'))modal(h);else{const st=sh.scrollTop;sh.innerHTML=h;sh.scrollTop=st}}
 function saveDtEdit(clear){
-  const e=window.LAST;if(!e||!DTE)return;const[bi,k]=DTE.split(':'),d=$('#dtD').value,tm=$('#dtT').value,o=clear||!d?null:{d,t:tm};
-  if(bi==='r'){e.rot.dates=e.rot.dates||[];e.rot.dates[Number(k)]=o}
-  else{const b=e.blocks[Number(bi)];if(k==='g')b.date=o;else{b.dates=b.dates||[];b.dates[Number(k)]=o}}
+  const e=window.LAST,X=DTE;if(!e||!X)return;const{L,idx}=X.sl,o=clear||!X.d?null:{d:X.d,t:X.t||''};
+  snap(t('uDt'));
+  if(o&&X.orig&&X.scope==='all'&&o.d!==X.orig.d){const dl=dayDiff(o.d,X.orig.d);
+    for(let j=idx+1;j<L.length;j++){const q=L[j].g();if(!q)continue;L[j].s({d:nextOK(addDays(q.d,dl)),t:q.t||''})}}
+  L[idx].s(o);
   if(e.mode==='rotation')applyDatesRotText(e);
-  save();closeModal();paintResult(e,false)}
+  DTE=null;save();closeModal();paintResult(e,false)}
 function applyDatesRotText(e){const st=e.rot.st,n=st.length,G=e.blocks.filter(b=>!b.rotb),rb=e.blocks.find(b=>b.rotb),ar=S.lang==='ar';if(!rb)return;rb.items=G.map((b,g)=>`${b.h}: `+st.map((_,r)=>st[(g+r)%n]).join(ar?' ← ':' → '));if(e.rot.dates)st.forEach((_,r)=>{if(e.rot.dates[r])rb.items.push(`${t('round')} ${r+1}: ${fmtDT(e.rot.dates[r])}`)})}
 async function runDraw(){
   if(busy)return;
@@ -892,6 +1002,7 @@ async function runDraw(){
     const fxs=new Set(RL.flatMap(r=>r.fx));pool=pool.filter(p=>!fxs.has(p.id));
     if(!pool.length&&!fxs.size)return toast(t('noneLeft'));
   }
+  snap(t('uDraw'),{quiet:true});
   stopSpeech();unlockSpeech();
   busy=true;renderDraw();$('#result').style.display='none';
   const stage=$('#stage');stage.classList.add('on');$('#partial').textContent='';stage.scrollIntoView({behavior:'smooth',block:'center'});
@@ -1098,8 +1209,20 @@ document.addEventListener('click',async e=>{
     case'dtedit':showDtEdit(v);break;
     case'dtsave':saveDtEdit(false);break;
     case'dtclr':saveDtEdit(true);break;
-    case'dtredo':{const e0=window.LAST;if(e0){applyDates(e0);save();paintResult(e0,false)}break}
-    case'dtcal':downloadICS(window.LAST);break;
+    case'dtredo':{const e0=window.LAST;if(e0){snap(t('uRedo'));applyDates(e0);save();paintResult(e0,false)}break}
+    case'undo':doUndo();break;
+    case'dtpick':DTE.d=v;DTE.view=v.slice(0,7);dtRender();break;
+    case'dtmo':{const[y,m]=DTE.view.split('-').map(Number),d=new Date(y,m-1+Number(v),1);DTE.view=`${d.getFullYear()}-${pad2(d.getMonth()+1)}`;dtRender();break}
+    case'dtq':{const td=isoOf(new Date()),b=DTE.d||td;
+      if(v==='t')DTE.d=td;else if(v==='n')DTE.d=addDays(td,1);else if(v==='w')DTE.d=addDays(b,7);
+      else{const d=parseISO(b);d.setMonth(d.getMonth()+1);DTE.d=isoOf(d)}
+      DTE.view=DTE.d.slice(0,7);dtRender();break}
+    case'dttm':DTE.t=v;dtRender();break;
+    case'dtscope':DTE.scope=v;dtRender();break;
+    case'dtpost':{const b=DTE.d||isoOf(new Date());DTE.d=dateOK(b)?nextOK(addDays(b,1)):nextOK(b);DTE.view=DTE.d.slice(0,7);dtRender();break}
+    case'holadd':S.dt.hol.push({id:uid(),n:'',a:isoOf(new Date()),b:isoOf(new Date())});save();renderDraw();break;
+    case'holdel':snap(t('uHol'),{hol:true});S.dt.hol=S.dt.hol.filter(x=>x.id!==v);save();renderDraw();break;
+    case'dtcal':shareICS(window.LAST);break;
     case'radd':S.rl.push({id:uid(),n:'',c:1,fx:[]});save();renderDraw();break;
     case'rdel':S.rl=S.rl.filter(x=>x.id!==v);save();renderDraw();break;
     case'rstep':{const r=S.rl.find(x=>x.id===v);if(r){r.c=Math.max(Math.max(1,r.fx.length),Math.min(99,r.c+Number(T.dataset.d)));save();renderDraw()}break}
@@ -1122,25 +1245,25 @@ document.addEventListener('click',async e=>{
     case'es':EDIT.s=v;$$('[data-a=es]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));break;
     case'el':EDIT.lv=Number(v);$$('[data-a=el]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));break;
     case'esave':{const p=S.people.find(x=>x.id===EDIT.id);if(p){const n=$('#eN').value.trim();if(n)p.n=n;p.g=EDIT.g;p.s=EDIT.s;p.lv=EDIT.lv;save()}closeModal();renderAll();break}
-    case'edel':{S.people=S.people.filter(x=>x.id!==EDIT.id);S.drawn=S.drawn.filter(x=>x!==EDIT.id);save();closeModal();renderAll();break}
+    case'edel':{snap(t('uPerson'));S.people=S.people.filter(x=>x.id!==EDIT.id);S.drawn=S.drawn.filter(x=>x!==EDIT.id);save();closeModal();renderAll();break}
     case'close':closeModal();break;
     case'add':{const ta=$('#ta'),ents=parseRows(ta.value.split(/\r?\n/).map(l=>[l]));if(ents.length){const r=addEntries(ents,false);ta.value='';toast(`${r.added} ${t('added')}${r.dup?` · ${r.dup} ${t('impDup')}`:''}`)}break}
     case'paste':{try{const txt=await navigator.clipboard.readText();startPreview(t('clipboard'),{sheets:[{name:'',rows:txt.split(/\r?\n/).map(l=>[l])}]})}catch(err){toast(t('pasteFail'))}break}
     case'import':$('#file').click();break;
     case'allpresent':S.people.forEach(p=>p.s='');save();renderAll();break;
-    case'clear':if(S.people.length&&confirm(t('delConfirm'))){S.people=[];S.drawn=[];save();renderAll()}break;
-    case'newlist':{if(S.people.length&&!S.curList&&!confirm(t('discardConfirm')))break;save();S.curList='';S.people=[];S.drawn=[];save();renderAll();break}
+    case'clear':if(S.people.length){snap(t('uClear'));S.people=[];S.drawn=[];save();renderAll()}break;
+    case'newlist':{if(S.people.length&&!S.curList)snap(t('uNew'));save();S.curList='';S.people=[];S.drawn=[];save();renderAll();break}
     case'rename':{const n=(prompt(t('renamePrompt'),S.curList)||'').trim();if(!n||n===S.curList)break;if(S.lists[n]){toast(t('exists'));break}save();S.lists[n]=S.lists[S.curList];delete S.lists[S.curList];S.curList=n;save();renderAll();break}
     case'savelist':{const n=$('#listName').value.trim();if(!n||!S.people.length)break;
       if(S.lists[n]&&n!==S.curList&&!confirm(n+' — '+t('exists')+'. OK?'))break;
       S.curList=n;save();$('#listName').value='';renderAll();toast(t('saved'));break}
     case'openlist':if(v!==S.curList)openList(v);break;
-    case'rmlist':{delete S.lists[v];if(S.curList===v)S.curList='';save();renderAll();break}
-    case'resetdrawn':S.drawn=[];save();renderAll();break;
+    case'rmlist':{snap(t('uList'));delete S.lists[v];if(S.curList===v)S.curList='';save();renderAll();break}
+    case'resetdrawn':snap(t('uDrawn'));S.drawn=[];save();renderAll();break;
     case'go':runDraw();break;
-    case'clearhist':if(S.history.length&&confirm(t('delConfirm'))){S.history=[];save();renderHist()}break;
+    case'clearhist':if(S.history.length){snap(t('uHist'));S.history=[];save();renderHist()}break;
     case'hcopy':{const h=S.history[v];copyText(blocksText(h.title,h.blocks));break}
-    case'hdel':S.history.splice(v,1);save();renderHist();break;
+    case'hdel':snap(t('uHdel'));S.history.splice(v,1);save();renderHist();break;
     case'speakres':{stopSpeech();unlockSpeech();const was=S.speak;S.speak=true;await speakAll(speechLines(window.LAST));S.speak=was;break}
     case'copyres':copyText(blocksText(window.LAST.title,window.LAST.blocks));break;
     case'shareres':{const txt=blocksText(window.LAST.title,window.LAST.blocks);if(navigator.share){try{await navigator.share({text:txt})}catch(err){}}else copyText(txt);break}
@@ -1157,6 +1280,9 @@ document.addEventListener('change',e=>{
   const dd=e.target.dataset||{};
   if(dd.dt==='on'){S.dt.on=e.target.checked;if(S.dt.on&&!S.dt.start)S.dt.start=isoOf(new Date());save();renderDraw();return}
   if(dd.dtf){S.dt[dd.dtf]=e.target.value;save();return}
+  if(dd.dthf){S.dt.hf=e.target.checked;save();return}
+  if(dd.hd){const[id,f]=dd.hd.split(':'),h=S.dt.hol.find(x=>x.id===id);if(h){h[f]=e.target.value;if(f==='a'&&(!h.b||h.b<h.a))h.b=h.a;if(f==='b'&&h.b&&h.a&&h.b<h.a)h.a=h.b;save();renderDraw()}return}
+  if(dd.dtt&&DTE){DTE.t=e.target.value;dtRender();return}
   const k=e.target.dataset&&e.target.dataset.chk;if(k){S[k]=e.target.checked;save();if(k==='speak'&&!S.speak)stopSpeech();renderAll();return}
   if(e.target.id==='impSheet'&&IMP){IMP.si=Number(e.target.value);reparse();renderImp()}
 });
@@ -1164,6 +1290,7 @@ document.addEventListener('input',e=>{
   const d=e.target.dataset;
   if(d&&d.ei!==undefined&&IMP){IMP.ents[d.ei].n=e.target.value;return}
   if(d&&d.hdr){S.hdr[d.hdr]=e.target.value;save();return}
+  if(d&&d.hn){const h=S.dt.hol.find(x=>x.id===d.hn);if(h){h.n=e.target.value;save()}return}
   if(d&&d.sn){const r=S.sl.find(x=>x.id===d.sn);if(r){r.n=e.target.value;save()}return}
   if(d&&d.rn){const r=S.rl.find(x=>x.id===d.rn);if(r){r.n=e.target.value;save()}return}
 });
