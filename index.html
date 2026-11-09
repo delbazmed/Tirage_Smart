@@ -237,6 +237,14 @@ html[data-theme=dark] .dt.hol{color:#fbbf24}
 .ds-opt b{display:block;font-size:14px;font-weight:600}.ds-opt small{color:var(--muted);font-size:12px}
 .ds-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ds-acts button{padding:12px;border-radius:13px;border:1px solid var(--line);background:var(--card2);color:var(--text);font:500 13.5px var(--font);cursor:pointer}
 .ds-acts .pri{grid-column:1/3;background:var(--grad);color:#04281a;font-weight:700;border:0;font-size:15px}.ds-acts .del{color:#f43f5e}
+
+.pl{margin-inline-start:auto;display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--text) 9%,transparent);white-space:nowrap}
+.pl i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.pl+.dt{margin-inline-start:8px}
+.gcard .gi{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.gcard .gi .pl{margin:0;font-size:11.5px;background:none;padding:0;color:var(--muted)}
+.bg .pl,.blist .pl{font-size:clamp(12px,2.8vw,18px)}
+.plt{border-inline-start:3px solid var(--pc);padding-inline-start:5px;margin-inline-start:6px}
+.plrow{display:flex;gap:8px;align-items:center;margin:6px 0}.plrow>i{width:12px;height:12px;border-radius:50%;flex:none}.plrow input[type=text]{flex:1;min-width:0}.plc{min-width:26px;text-align:center;font-weight:700;color:var(--acc)}
 </style>
 </head>
 <body>
@@ -355,7 +363,7 @@ html[data-theme=dark] .dt.hol{color:#fbbf24}
 
 <script>
 'use strict';
-const APP={name:'Tirage_Smart',ver:'1.5.0',date:'2026-11-09',dev:'Delbaz Mohammed · Delbaz _EPS'};
+const APP={name:'Tirage_Smart',ver:'1.6.0',date:'2026-11-09',dev:'Delbaz Mohammed · Delbaz _EPS'};
 /* ================= i18n ================= */
 const I18N={
 ar:{app:'قرعة ذكية',tabList:'القائمة',tabDraw:'القرعة',tabHist:'السجل',tabSet:'الإعدادات',
@@ -378,7 +386,7 @@ copy:'نسخ',share:'مشاركة',pdf:'PDF',big:'عرض كبير',copied:'تم 
 delConfirm:'مسح كل البيانات؟',discardConfirm:'القائمة الحالية غير محفوظة، متابعة؟',empty:'لا يوجد سجل',del:'حذف',cancel:'إلغاء',save:'حفظ',
 edit:'تعديل التلميذ',fullName:'الاسم الكامل',gender:'الجنس',nd:'غير محدد',level:'المستوى',lvNone:'—',status:'الحالة',
 impTitle:'معاينة الاستيراد',impAdd:'إضافة للقائمة',impReplace:'استبدال القائمة',impNone:'لم يُعثر على أسماء في الملف',impFail:'تعذّرت قراءة الملف',impReading:'جارٍ قراءة الملف...',impOcr:'جارٍ التعرف على النص (قد يستغرق دقيقة)...',impDup:'مكرر مستبعد',impSel:'محدد',docOld:'صيغة .doc القديمة غير مدعومة، احفظ الملف بصيغة .docx',pasteFail:'تعذّر الوصول للحافظة، الصق في الحقل مباشرة',added:'أُضيف',clipboard:'الحافظة',
-setAppearance:'المظهر',thAuto:'تلقائي',thLight:'نهاري',thDark:'ليلي',setSound:'الصوت والنطق',setHdr:'ترويسة وثائق PDF',hdrTeacher:'الأستاذ',hdrSchool:'المؤسسة',hdrSeason:'الموسم الدراسي',hdrSup:'الناظر',hdrDir:'المدير',hdrNote:'تظهر هذه المعلومات في أعلى ملف PDF، وتحت النتيجة خانات التوقيع (الأستاذ، الناظر، المدير).',setAbout:'حول التطبيق',aboutDev:'المطور',aboutVer:'النسخة',aboutDate:'تاريخ الإصدار',whatsNew:'ما الجديد',dtLabel:'التواريخ',dtOn:'تحديد تواريخ',dtStart:'تاريخ البداية',dtTime:'الوقت (اختياري)',dtHours:'كل ساعات',dtDays:'كل أيام',dtWeeks:'كل أسابيع',dtWd:'يوم محدد',dtEvery:'كل',dtSkip:'تخطي هذه الأيام',dtOnDays:'الأيام المطلوبة (يتناوب التوزيع عليها)',dtSpeak:'نطق التاريخ مع الاسم',dtRedo:'إعادة حساب التواريخ',dtEdit:'تعديل التاريخ',dtClear:'حذف',dtSave:'حفظ',dtCal:'إضافة إلى تقويم الهاتف',dtApplies:'تُطبَّق التواريخ على الترتيب والأفواج والتناوب.',dtHour:'ساعة',dtDay:'يوم',dtWeek:'أسبوع',wdays:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],months:['جانفي','فيفري','مارس','أفريل','ماي','جوان','جويلية','أوت','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],atHour:'الساعة',mRot:'تناوب',stLabel:'الورشات / المحطات',addSt:'+ ورشة',stName:'اسم الورشة',rotDur:'مدة كل دورة (دقيقة، 0 = بدون)',rotHint:'عدد الأفواج = عدد الورشات، ويمرّ كل فوج على كل الورشات بالتناوب.',round:'الدورة',rotTitle:'تناوب الورشات',rotTable:'جدول التناوب',gTeams:'أسماء وألوان فرق',gCap:'قائد عشوائي لكل فوج',team:'الفريق',captain:'قائد',min:'د',needSt:'أضف ورشتين على الأقل',teamNames:['الأحمر','الأزرق','الأخضر','الأصفر','البرتقالي','البنفسجي','الوردي','التركوازي'],addRole:'+ دور جديد',roleName:'اسم الدور',pinBtn:'تعيين مباشر',direct:'مباشر',rAll:'وزّع الجميع على الأدوار (وإلا يبقى الباقون بدون دور)',rExe:'إشراك المعفى في الأدوار',rAbs:'إشراك الغائب في الأدوار',noRole:'بدون دور',pickPeople:'اختر المعيَّنين مباشرة لهذا الدور',done:'تم',download:'تحميل',print:'طباعة',closeB:'إغلاق',repub:'الجمهورية الجزائرية الديمقراطية الشعبية',minis:'وزارة التربية الوطنية',sigTitle:'الإمضاء',rolesHint:'حدّد عدد المقاعد لكل دور. المعيَّنون مباشرة يُستثنون من القرعة.',pinnedTo:'معيَّن في',wnTitle:'ما الجديد في النسخة',gotIt:'حسناً',updReady:'تحديث جديد جاهز',updNow:'تحديث الآن',curVer:'النسخة الحالية',olderVer:'النسخ السابقة',holTitle:'تخطي العطل',holHint:'أي موعد يقع في عطلة يُنقل إلى أقرب يوم متاح، وتتحرك المواعيد اللاحقة معه.',holFixed:'العطل الوطنية الثابتة',holFixedSub:'1 جانفي · 12 جانفي · 1 ماي · 5 جويلية · 1 نوفمبر (راجعها قبل الاعتماد)',holAdd:'+ إضافة عطلة',holName:'اسم العطلة (مثلاً: عطلة الشتاء)',holFrom:'من',holTo:'إلى',holiday:'عطلة',fixHol:['رأس السنة الميلادية','رأس السنة الأمازيغية','عيد العمال','عيد الاستقلال','ذكرى اندلاع الثورة'],undo:'تراجع',undone:'تم التراجع',nothingUndo:'لا شيء للتراجع عنه',dtToday:'اليوم',dtTomorrow:'غداً',dtPlusW:'+ أسبوع',dtPlusM:'+ شهر',dtNoTime:'بدون وقت',dtOnly:'هذا الموعد فقط',dtFollow:'هذا الموعد وما بعده',dtScope:'تطبيق التغيير على',dtPost:'تأجيل لأقرب يوم متاح',dtHolWarn:'هذا اليوم ضمن العطل',dtOffWarn:'هذا اليوم من الأيام المتخطاة',legHol:'عطلة',legOff:'يوم متخطّى',legUsed:'موعد آخر',noDate:'بدون تاريخ',rankOf:'الترتيب',icsTitle:'ملف التقويم جاهز',icsHow:'نُزّل الملف tirage-smart.ics. افتحه من إشعار التنزيل أو من مجلد «التنزيلات» ثم اختر تطبيق «التقويم» لإضافة الأحداث.',uClear:'تم مسح القائمة',uList:'تم حذف القائمة المحفوظة',uHist:'تم مسح السجل',uHdel:'تم حذف العنصر',uDrawn:'تم تصفير المسحوبين',uDt:'تم تعديل التاريخ',uRedo:'أُعيد حساب التواريخ',uNew:'قائمة جديدة',uPerson:'تم حذف الشخص',uImp:'تم استبدال القائمة',uHol:'تم حذف العطلة',uDraw:'نتيجة القرعة'},
+setAppearance:'المظهر',thAuto:'تلقائي',thLight:'نهاري',thDark:'ليلي',setSound:'الصوت والنطق',setHdr:'ترويسة وثائق PDF',hdrTeacher:'الأستاذ',hdrSchool:'المؤسسة',hdrSeason:'الموسم الدراسي',hdrSup:'الناظر',hdrDir:'المدير',hdrNote:'تظهر هذه المعلومات في أعلى ملف PDF، وتحت النتيجة خانات التوقيع (الأستاذ، الناظر، المدير).',setAbout:'حول التطبيق',aboutDev:'المطور',aboutVer:'النسخة',aboutDate:'تاريخ الإصدار',whatsNew:'ما الجديد',dtLabel:'التواريخ',dtOn:'تحديد تواريخ',dtStart:'تاريخ البداية',dtTime:'الوقت (اختياري)',dtHours:'كل ساعات',dtDays:'كل أيام',dtWeeks:'كل أسابيع',dtWd:'يوم محدد',dtEvery:'كل',dtSkip:'تخطي هذه الأيام',dtOnDays:'الأيام المطلوبة (يتناوب التوزيع عليها)',dtSpeak:'نطق التاريخ مع الاسم',dtRedo:'إعادة حساب التواريخ',dtEdit:'تعديل التاريخ',dtClear:'حذف',dtSave:'حفظ',dtCal:'إضافة إلى تقويم الهاتف',dtApplies:'تُطبَّق التواريخ على الترتيب والأفواج والتناوب.',dtHour:'ساعة',dtDay:'يوم',dtWeek:'أسبوع',wdays:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],months:['جانفي','فيفري','مارس','أفريل','ماي','جوان','جويلية','أوت','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],atHour:'الساعة',mRot:'تناوب',stLabel:'الورشات / المحطات',addSt:'+ ورشة',stName:'اسم الورشة',rotDur:'مدة كل دورة (دقيقة، 0 = بدون)',rotHint:'عدد الأفواج = عدد الورشات، ويمرّ كل فوج على كل الورشات بالتناوب.',round:'الدورة',rotTitle:'تناوب الورشات',rotTable:'جدول التناوب',gTeams:'أسماء وألوان فرق',gCap:'قائد عشوائي لكل فوج',team:'الفريق',captain:'قائد',min:'د',needSt:'أضف ورشتين على الأقل',teamNames:['الأحمر','الأزرق','الأخضر','الأصفر','البرتقالي','البنفسجي','الوردي','التركوازي'],addRole:'+ دور جديد',roleName:'اسم الدور',pinBtn:'تعيين مباشر',direct:'مباشر',rAll:'وزّع الجميع على الأدوار (وإلا يبقى الباقون بدون دور)',rExe:'إشراك المعفى في الأدوار',rAbs:'إشراك الغائب في الأدوار',noRole:'بدون دور',pickPeople:'اختر المعيَّنين مباشرة لهذا الدور',done:'تم',download:'تحميل',print:'طباعة',closeB:'إغلاق',repub:'الجمهورية الجزائرية الديمقراطية الشعبية',minis:'وزارة التربية الوطنية',sigTitle:'الإمضاء',rolesHint:'حدّد عدد المقاعد لكل دور. المعيَّنون مباشرة يُستثنون من القرعة.',pinnedTo:'معيَّن في',wnTitle:'ما الجديد في النسخة',gotIt:'حسناً',updReady:'تحديث جديد جاهز',updNow:'تحديث الآن',curVer:'النسخة الحالية',olderVer:'النسخ السابقة',holTitle:'تخطي العطل',holHint:'أي موعد يقع في عطلة يُنقل إلى أقرب يوم متاح، وتتحرك المواعيد اللاحقة معه.',holFixed:'العطل الوطنية الثابتة',holFixedSub:'1 جانفي · 12 جانفي · 1 ماي · 5 جويلية · 1 نوفمبر (راجعها قبل الاعتماد)',holAdd:'+ إضافة عطلة',holName:'اسم العطلة (مثلاً: عطلة الشتاء)',holFrom:'من',holTo:'إلى',holiday:'عطلة',fixHol:['رأس السنة الميلادية','رأس السنة الأمازيغية','عيد العمال','عيد الاستقلال','ذكرى اندلاع الثورة'],undo:'تراجع',undone:'تم التراجع',nothingUndo:'لا شيء للتراجع عنه',dtToday:'اليوم',dtTomorrow:'غداً',dtPlusW:'+ أسبوع',dtPlusM:'+ شهر',dtNoTime:'بدون وقت',dtOnly:'هذا الموعد فقط',dtFollow:'هذا الموعد وما بعده',dtScope:'تطبيق التغيير على',dtPost:'تأجيل لأقرب يوم متاح',dtHolWarn:'هذا اليوم ضمن العطل',dtOffWarn:'هذا اليوم من الأيام المتخطاة',legHol:'عطلة',legOff:'يوم متخطّى',legUsed:'موعد آخر',noDate:'بدون تاريخ',rankOf:'الترتيب',icsTitle:'ملف التقويم جاهز',icsHow:'نُزّل الملف tirage-smart.ics. افتحه من إشعار التنزيل أو من مجلد «التنزيلات» ثم اختر تطبيق «التقويم» لإضافة الأحداث.',uClear:'تم مسح القائمة',uList:'تم حذف القائمة المحفوظة',uHist:'تم مسح السجل',uHdel:'تم حذف العنصر',uDrawn:'تم تصفير المسحوبين',uDt:'تم تعديل التاريخ',uRedo:'أُعيد حساب التواريخ',uNew:'قائمة جديدة',uPerson:'تم حذف الشخص',uImp:'تم استبدال القائمة',uHol:'تم حذف العطلة',uDraw:'نتيجة القرعة',plTitle:'الأماكن',plRot:'تناوب الأمكنة في القرعة',plHint:'واحد من كل مكان بالدور (عشوائي داخل كل مكان). يظهر المكان في التقارير.',plName:'اسم المكان (مثلاً: أربوات)',plAdd:'+ مكان',plAssign:'تعيين',plNone:'بدون مكان',plPick:'اختر الأشخاص المقيمين في هذا المكان',plAll:'تحديد الكل',plNoCnt:'شخص',uPlace:'تم حذف المكان',uPlAs:'تم تعيين المكان',place:'المكان'},
 fr:{app:'Tirage Smart',tabList:'Liste',tabDraw:'Tirage',tabHist:'Historique',tabSet:'Réglages',
 curList:'Liste actuelle',unnamed:'Liste sans nom (non enregistrée)',rename:'Renommer',newList:'Nouvelle liste',renamePrompt:'Nouveau nom de la liste',exists:'Ce nom existe déjà',
 addNames:'Ajouter des noms',addPh:'Saisir ou coller les noms (nom complet par ligne)',add:'Ajouter',paste:'Coller',importFile:'Importer un fichier',importHint:'Excel · Word · PDF (même scanné) · Image · TXT · ou partage depuis Notes',
@@ -399,7 +407,7 @@ copy:'Copier',share:'Partager',pdf:'PDF',big:'Affichage XL',copied:'Copié',save
 delConfirm:'Effacer toutes les données ?',discardConfirm:'La liste actuelle n’est pas enregistrée, continuer ?',empty:'Aucun historique',del:'Supprimer',cancel:'Annuler',save:'Enregistrer',
 edit:'Modifier l’élève',fullName:'Nom complet',gender:'Sexe',nd:'N.D.',level:'Niveau',lvNone:'—',status:'État',
 impTitle:'Aperçu de l’import',impAdd:'Ajouter à la liste',impReplace:'Remplacer la liste',impNone:'Aucun nom trouvé dans le fichier',impFail:'Lecture du fichier impossible',impReading:'Lecture du fichier...',impOcr:'Reconnaissance du texte (peut durer une minute)...',impDup:'doublons ignorés',impSel:'sélectionnés',docOld:'Le format .doc n’est pas pris en charge, enregistrez en .docx',pasteFail:'Presse-papiers inaccessible, collez dans le champ',added:'ajoutés',clipboard:'Presse-papiers',
-setAppearance:'Apparence',thAuto:'Auto',thLight:'Jour',thDark:'Nuit',setSound:'Son et voix',setHdr:'En-tête des documents PDF',hdrTeacher:'Enseignant',hdrSchool:'Établissement',hdrSeason:'Année scolaire',hdrSup:'Surveillant général',hdrDir:'Directeur',hdrNote:'Ces informations apparaissent en haut du PDF, avec les cases de signature (enseignant, surveillant général, directeur) sous le résultat.',setAbout:'À propos',aboutDev:'Développeur',aboutVer:'Version',aboutDate:'Date de publication',whatsNew:'Nouveautés',dtLabel:'Dates',dtOn:'Attribuer des dates',dtStart:'Date de début',dtTime:'Heure (facultatif)',dtHours:'Toutes les … heures',dtDays:'Tous les … jours',dtWeeks:'Toutes les … semaines',dtWd:'Jour précis',dtEvery:'Tous les',dtSkip:'Jours ignorés',dtOnDays:'Jours souhaités (répartition à tour de rôle)',dtSpeak:'Lire la date avec le nom',dtRedo:'Recalculer les dates',dtEdit:'Modifier la date',dtClear:'Supprimer',dtSave:'Enregistrer',dtCal:'Ajouter au calendrier du téléphone',dtApplies:'Les dates s’appliquent à l’ordre, aux groupes et à la rotation.',dtHour:'heure(s)',dtDay:'jour(s)',dtWeek:'semaine(s)',wdays:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],months:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],atHour:'à',mRot:'Rotation',stLabel:'Ateliers / stations',addSt:'+ Atelier',stName:'Nom de l’atelier',rotDur:'Durée de chaque rotation (min, 0 = aucune)',rotHint:'Nombre de groupes = nombre d’ateliers ; chaque groupe passe par tous les ateliers.',round:'Rotation',rotTitle:'Rotation des ateliers',rotTable:'Tableau de rotation',gTeams:'Noms et couleurs d’équipes',gCap:'Capitaine aléatoire par groupe',team:'Équipe',captain:'capitaine',min:'min',needSt:'Ajoutez au moins deux ateliers',teamNames:['Rouge','Bleu','Vert','Jaune','Orange','Violet','Rose','Turquoise'],addRole:'+ Nouveau rôle',roleName:'Nom du rôle',pinBtn:'Affectation directe',direct:'direct',rAll:'Répartir tout le monde sur les rôles (sinon les autres restent sans rôle)',rExe:'Inclure les dispensés',rAbs:'Inclure les absents',noRole:'Sans rôle',pickPeople:'Choisir les personnes affectées directement à ce rôle',done:'OK',download:'Télécharger',print:'Imprimer',closeB:'Fermer',repub:'République Algérienne Démocratique et Populaire',minis:'Ministère de l’Éducation Nationale',sigTitle:'Signatures',rolesHint:'Fixez le nombre de places par rôle. Les personnes affectées directement sont exclues du tirage.',pinnedTo:'affecté à',wnTitle:'Nouveautés de la version',gotIt:'OK',updReady:'Mise à jour disponible',updNow:'Mettre à jour',curVer:'Version actuelle',olderVer:'Versions précédentes',holTitle:'Ignorer les jours fériés',holHint:'Une date tombant un jour férié est reportée au prochain jour disponible, et les dates suivantes suivent.',holFixed:'Jours fériés nationaux fixes',holFixedSub:'1 janv. · 12 janv. · 1 mai · 5 juil. · 1 nov. (à vérifier)',holAdd:'+ Ajouter un congé',holName:'Nom (ex. vacances d’hiver)',holFrom:'Du',holTo:'Au',holiday:'Férié',fixHol:['Jour de l’An','Yennayer','Fête du Travail','Fête de l’Indépendance','Anniversaire de la Révolution'],undo:'Annuler',undone:'Action annulée',nothingUndo:'Rien à annuler',dtToday:'Aujourd’hui',dtTomorrow:'Demain',dtPlusW:'+ 1 sem.',dtPlusM:'+ 1 mois',dtNoTime:'Sans heure',dtOnly:'Cette date seulement',dtFollow:'Cette date et les suivantes',dtScope:'Appliquer le changement à',dtPost:'Reporter au prochain jour disponible',dtHolWarn:'Ce jour est férié',dtOffWarn:'Ce jour fait partie des jours ignorés',legHol:'Férié',legOff:'Jour ignoré',legUsed:'Autre date',noDate:'Sans date',rankOf:'Rang',icsTitle:'Fichier calendrier prêt',icsHow:'Le fichier tirage-smart.ics a été téléchargé. Ouvrez-le depuis la notification ou le dossier « Téléchargements », puis choisissez l’application « Calendrier ».',uClear:'Liste effacée',uList:'Liste supprimée',uHist:'Historique effacé',uHdel:'Élément supprimé',uDrawn:'Tirés réinitialisés',uDt:'Date modifiée',uRedo:'Dates recalculées',uNew:'Nouvelle liste',uPerson:'Personne supprimée',uImp:'Liste remplacée',uHol:'Congé supprimé',uDraw:'Résultat du tirage'}
+setAppearance:'Apparence',thAuto:'Auto',thLight:'Jour',thDark:'Nuit',setSound:'Son et voix',setHdr:'En-tête des documents PDF',hdrTeacher:'Enseignant',hdrSchool:'Établissement',hdrSeason:'Année scolaire',hdrSup:'Surveillant général',hdrDir:'Directeur',hdrNote:'Ces informations apparaissent en haut du PDF, avec les cases de signature (enseignant, surveillant général, directeur) sous le résultat.',setAbout:'À propos',aboutDev:'Développeur',aboutVer:'Version',aboutDate:'Date de publication',whatsNew:'Nouveautés',dtLabel:'Dates',dtOn:'Attribuer des dates',dtStart:'Date de début',dtTime:'Heure (facultatif)',dtHours:'Toutes les … heures',dtDays:'Tous les … jours',dtWeeks:'Toutes les … semaines',dtWd:'Jour précis',dtEvery:'Tous les',dtSkip:'Jours ignorés',dtOnDays:'Jours souhaités (répartition à tour de rôle)',dtSpeak:'Lire la date avec le nom',dtRedo:'Recalculer les dates',dtEdit:'Modifier la date',dtClear:'Supprimer',dtSave:'Enregistrer',dtCal:'Ajouter au calendrier du téléphone',dtApplies:'Les dates s’appliquent à l’ordre, aux groupes et à la rotation.',dtHour:'heure(s)',dtDay:'jour(s)',dtWeek:'semaine(s)',wdays:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],months:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],atHour:'à',mRot:'Rotation',stLabel:'Ateliers / stations',addSt:'+ Atelier',stName:'Nom de l’atelier',rotDur:'Durée de chaque rotation (min, 0 = aucune)',rotHint:'Nombre de groupes = nombre d’ateliers ; chaque groupe passe par tous les ateliers.',round:'Rotation',rotTitle:'Rotation des ateliers',rotTable:'Tableau de rotation',gTeams:'Noms et couleurs d’équipes',gCap:'Capitaine aléatoire par groupe',team:'Équipe',captain:'capitaine',min:'min',needSt:'Ajoutez au moins deux ateliers',teamNames:['Rouge','Bleu','Vert','Jaune','Orange','Violet','Rose','Turquoise'],addRole:'+ Nouveau rôle',roleName:'Nom du rôle',pinBtn:'Affectation directe',direct:'direct',rAll:'Répartir tout le monde sur les rôles (sinon les autres restent sans rôle)',rExe:'Inclure les dispensés',rAbs:'Inclure les absents',noRole:'Sans rôle',pickPeople:'Choisir les personnes affectées directement à ce rôle',done:'OK',download:'Télécharger',print:'Imprimer',closeB:'Fermer',repub:'République Algérienne Démocratique et Populaire',minis:'Ministère de l’Éducation Nationale',sigTitle:'Signatures',rolesHint:'Fixez le nombre de places par rôle. Les personnes affectées directement sont exclues du tirage.',pinnedTo:'affecté à',wnTitle:'Nouveautés de la version',gotIt:'OK',updReady:'Mise à jour disponible',updNow:'Mettre à jour',curVer:'Version actuelle',olderVer:'Versions précédentes',holTitle:'Ignorer les jours fériés',holHint:'Une date tombant un jour férié est reportée au prochain jour disponible, et les dates suivantes suivent.',holFixed:'Jours fériés nationaux fixes',holFixedSub:'1 janv. · 12 janv. · 1 mai · 5 juil. · 1 nov. (à vérifier)',holAdd:'+ Ajouter un congé',holName:'Nom (ex. vacances d’hiver)',holFrom:'Du',holTo:'Au',holiday:'Férié',fixHol:['Jour de l’An','Yennayer','Fête du Travail','Fête de l’Indépendance','Anniversaire de la Révolution'],undo:'Annuler',undone:'Action annulée',nothingUndo:'Rien à annuler',dtToday:'Aujourd’hui',dtTomorrow:'Demain',dtPlusW:'+ 1 sem.',dtPlusM:'+ 1 mois',dtNoTime:'Sans heure',dtOnly:'Cette date seulement',dtFollow:'Cette date et les suivantes',dtScope:'Appliquer le changement à',dtPost:'Reporter au prochain jour disponible',dtHolWarn:'Ce jour est férié',dtOffWarn:'Ce jour fait partie des jours ignorés',legHol:'Férié',legOff:'Jour ignoré',legUsed:'Autre date',noDate:'Sans date',rankOf:'Rang',icsTitle:'Fichier calendrier prêt',icsHow:'Le fichier tirage-smart.ics a été téléchargé. Ouvrez-le depuis la notification ou le dossier « Téléchargements », puis choisissez l’application « Calendrier ».',uClear:'Liste effacée',uList:'Liste supprimée',uHist:'Historique effacé',uHdel:'Élément supprimé',uDrawn:'Tirés réinitialisés',uDt:'Date modifiée',uRedo:'Dates recalculées',uNew:'Nouvelle liste',uPerson:'Personne supprimée',uImp:'Liste remplacée',uHol:'Congé supprimé',uDraw:'Résultat du tirage',plTitle:'Lieux',plRot:'Alternance des lieux au tirage',plHint:'Un de chaque lieu à tour de rôle (au hasard dans chaque lieu). Le lieu apparaît dans les rapports.',plName:'Nom du lieu (ex. Arbaouat)',plAdd:'+ Lieu',plAssign:'Affecter',plNone:'Sans lieu',plPick:'Choisir les personnes de ce lieu',plAll:'Tout sélectionner',plNoCnt:'pers.',uPlace:'Lieu supprimé',uPlAs:'Lieu affecté',place:'Lieu'}
 };
 const PAL=['#22c55e','#38bdf8','#f59e0b','#f472b6','#a78bfa','#fb7185','#2dd4bf','#facc15','#60a5fa','#f97316'];
 const PALD=['#16a34a','#0284c7','#d97706','#db2777','#7c3aed','#e11d48','#0d9488','#ca8a04','#2563eb','#ea580c'];
@@ -411,8 +419,9 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const LS='tirage_smart_v1';
-const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',rl:[],sl:[],dt:{on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6],hf:false,hol:[]},dtSpeak:false,rDur:0,gTeams:false,gCap:false,rAll:false,rExe:false,rAbs:false,hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
+const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',rl:[],sl:[],places:[],plRot:false,dt:{on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6],hf:false,hol:[]},dtSpeak:false,rDur:0,gTeams:false,gCap:false,rAll:false,rExe:false,rAbs:false,hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
 const CHANGELOG=[
+ {v:'1.6.0',d:'2026-11-09',ar:['خاصية «المكان» لكل شخص (الأبيض سيدي الشيخ، أربوات، وأي مكان تضيفه) مع تعيين جماعي وتعديل فردي','«تناوب الأمكنة»: في الفائز والترتيب والأدوار يتناوب الاختيار بين الأمكنة، وفي الأفواج والتناوب يتوزع كل مكان بالتساوي على الأفواج','يظهر المكان بجانب الاسم في الشاشة والنسخ والعرض الكبير وPDF، وفي حقل «الموقع» بملف التقويم','استيراد عمود «المكان/السكن» من Excel تلقائياً'],fr:['Lieu par personne (ex. Sidi Cheikh, Arbaouat, ou tout lieu ajouté) avec affectation groupée et modification individuelle','Alternance des lieux : gagnant, ordre et rôles alternent entre les lieux ; groupes et rotation répartissent chaque lieu équitablement','Le lieu apparaît à côté du nom (écran, copie, affichage grand format, PDF) et dans le champ « Lieu » du calendrier','Import automatique d’une colonne « Lieu / Adresse » depuis Excel']},
  {v:'1.5.0',d:'2026-11-09',ar:['نافذة تعديل التاريخ بتصميم جديد: تقويم شهري، أزرار سريعة (اليوم، غداً، +أسبوع، +شهر) وأوقات جاهزة','تخطي العطل: العطل الوطنية الثابتة (اختياري) وعطلك الخاصة بتاريخ أو فترة، والمواعيد تنتقل تلقائياً إلى أقرب يوم متاح','عند تغيير موعد: اختر «هذا الموعد فقط» أو «هذا الموعد وما بعده»، مع تنبيه ⚠ وزر «تأجيل لأقرب يوم متاح»','زر «تراجع» (حتى 10 خطوات) بعد مسح القائمة أو حذف قائمة/سجل/شخص، وتصفير المسحوبين، وإعادة القرعة، وتعديل التواريخ','«إضافة إلى تقويم الهاتف» عبر نافذة المشاركة مباشرة، مع شرح إن لم يدعمها المتصفح','«إعادة توزيع التواريخ» أصبحت «إعادة حساب التواريخ» (قابلة للتراجع)'],fr:['Nouvelle fenêtre de modification de date : calendrier mensuel, raccourcis (aujourd’hui, demain, +1 sem., +1 mois) et heures prêtes','Jours fériés ignorés : fériés nationaux fixes (optionnel) et congés personnalisés (date ou période), report automatique au prochain jour disponible','Lors d’un changement : « cette date seulement » ou « cette date et les suivantes », avec alerte ⚠ et bouton de report','Bouton « Annuler » (10 étapes) après effacement de liste, suppression de liste/historique/personne, réinitialisation des tirés, nouveau tirage et modification des dates','« Ajouter au calendrier » via le partage direct, avec explication si le navigateur ne le gère pas','« Redistribuer les dates » devient « Recalculer les dates » (annulable)']},
  {v:'1.4.0',d:'2026-11-09',ar:['تواريخ اختيارية للترتيب والأفواج والتناوب: كل ساعات / أيام / أسابيع، أو يوم محدد (كل سبت، أحد وأربعاء…) مع تخطي أيام معيّنة','تعديل أي تاريخ يدوياً بالضغط عليه، وإعادة التوزيع التلقائي','يظهر التاريخ في الشاشة والنسخ والعرض الكبير وPDF، ولا يظهر إن لم يُفعَّل','زر «إضافة إلى تقويم الهاتف» (ملف .ics) ونطق التاريخ اختيارياً'],fr:['Dates facultatives pour l’ordre, les groupes et la rotation : toutes les x heures / jours / semaines, ou jour précis (chaque samedi, dimanche et mercredi…) avec jours ignorés','Modification manuelle de chaque date et recalcul automatique','Date visible à l’écran, dans les copies, l’affichage plein écran et le PDF, absente si désactivée','Bouton « Ajouter au calendrier » (.ics) et lecture vocale facultative de la date']},
  {v:'1.3.0',d:'2026-10-14',ar:['وضع جديد «تناوب»: توزيع الأفواج على الورشات مع جدول دورات ومدة كل دورة','أفواج بأسماء وألوان فرق (الأحمر، الأزرق…) مع قائد عشوائي لكل فوج','PDF في صفحة واحدة تلقائياً (صفحتان فقط عند الأعداد الكبيرة جداً)'],fr:['Nouveau mode « Rotation » : groupes répartis sur des ateliers avec tableau et durée','Groupes avec noms et couleurs d’équipes (Rouge, Bleu…) et capitaine aléatoire','PDF sur une seule page automatiquement (deux pages seulement pour de très grands effectifs)']},
@@ -423,14 +432,14 @@ const CHANGELOG=[
 ];
 const FRESH=(()=>{try{return !localStorage.getItem(LS)}catch(e){return true}})();
 let S=(()=>{try{return Object.assign(def(),JSON.parse(localStorage.getItem(LS))||{})}catch(e){return def()}})();
-if(!Array.isArray(S.rl))S.rl=[];if(!Array.isArray(S.sl))S.sl=[];S.dt=Object.assign({on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6],hf:false,hol:[]},S.dt||{});if(!Array.isArray(S.dt.hol))S.dt.hol=[];
+if(!Array.isArray(S.rl))S.rl=[];if(!Array.isArray(S.sl))S.sl=[];if(!Array.isArray(S.places))S.places=[];S.dt=Object.assign({on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6],hf:false,hol:[]},S.dt||{});if(!Array.isArray(S.dt.hol))S.dt.hol=[];
 if(!S.rl.length&&S.roles)S.roles.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(n=>S.rl.push({id:uid(),n,c:1,fx:[]}));
 S.hdr=Object.assign(def().hdr,S.hdr||{});
 (function migrate(){
   const fix=p=>{
     if(!p)return{id:uid(),n:'',g:'',lv:0,s:''};
-    if(p.n!==undefined&&p.fn===undefined)return{id:p.id||uid(),n:p.n,g:p.g||'',lv:p.lv||0,s:p.s||(p.a?'a':'')};
-    return{id:p.id||uid(),n:((p.ln||'')+' '+(p.fn||'')).trim(),g:p.g||'',lv:p.lv||0,s:p.s||(p.a?'a':'')}};
+    if(p.n!==undefined&&p.fn===undefined)return{id:p.id||uid(),n:p.n,g:p.g||'',lv:p.lv||0,s:p.s||(p.a?'a':''),pl:p.pl||''};
+    return{id:p.id||uid(),n:((p.ln||'')+' '+(p.fn||'')).trim(),g:p.g||'',lv:p.lv||0,s:p.s||(p.a?'a':''),pl:p.pl||''}};
   S.people=S.people.map(fix);
   for(const k in S.lists){const v=S.lists[k];
     if(Array.isArray(v))S.lists[k]={people:v.map(n=>({id:uid(),n:String(n),g:'',lv:0,s:''})),drawn:[]};
@@ -442,6 +451,17 @@ const t=k=>(I18N[S.lang]&&I18N[S.lang][k])||k;
 let busy=false;
 
 const dn=p=>p.n;
+const PLC=['#f59e0b','#3b82f6','#a855f7','#10b981','#ef4444','#14b8a6','#ec4899','#84cc16'];
+const placeName=p=>{const x=S.places.find(q=>q.id===p.pl);return x?x.n:''};
+const placeColor=n=>{const x=S.places.find(q=>q.n===n);return x?x.c:'#94a3b8'};
+const plOf=a=>S.plRot?a.map(placeName):undefined;
+const plb=(b,i)=>{const n=b.pl&&b.pl[i];return n?`<span class="pl"><i style="background:${placeColor(n)}"></i>${esc(n)}</span>`:''};
+const itp=(b,i)=>itx(b,i)+(b.pl&&b.pl[i]?' — '+b.pl[i]:'');
+function rotByPlace(pool,k){
+  const m=new Map();shuffle(pool).forEach(p=>{const q=p.pl||'';if(!m.has(q))m.set(q,[]);m.get(q).push(p)});
+  const keys=shuffle([...m.keys()]),n=k==null?pool.length:Math.min(k,pool.length),out=[];let i=0;
+  while(out.length<n&&i<pool.length*keys.length+8){const a=m.get(keys[i%keys.length]);if(a.length)out.push(a.shift());i++}
+  return out}
 const TEAMC=['#dc2626','#2563eb','#16a34a','#ca8a04','#ea580c','#7c3aed','#db2777','#0d9488'];
 const bc=(b,i)=>b.c||PALD[i%PALD.length];
 const pres=()=>S.people.filter(p=>!p.s);
@@ -538,6 +558,7 @@ const isDate=s=>/^\d{1,4}[\/\-.]\d{1,2}[\/\-.]\d{2,4}$/.test(String(s).trim());
 const HLN=new Set(['اللقب','لقب','nom','famille','surname','lastname']);
 const HFN=new Set(['الاسم','اسم','prenom','firstname','given']);
 const HFULL=new Set(['الكامل','complet','full','fullname']);
+const HPL=new Set(['مكان','المكان','السكن','سكن','العنوان','عنوان','البلدية','بلدية','lieu','adresse','commune','residence','ville','place']);
 const HG=new Set(['الجنس','جنس','sexe','genre','sex','gender']);
 const HX=new Set(['رقم','الرقم','n','no','num','numero','تاريخ','الميلاد','الازدياد','date','naissance','ملاحظات','ملاحظه','observation','observations','القسم','classe','النقطه','نقطه','العلامه','التلاميذ','التلميذ','قايمه','الاسماء','liste','eleves','eleve','nom','prenom','et','و']);
 const HSKIP=new Set(['ثانويه','متوسطه','اكماليه','ابتدايه','مديريه','وزاره','الجمهوريه','lycee','college','cem','ecole','annee','الموسم','السنه','الدراسيه','الفوج','المجموع','total','قايمه','تلاميذ','التلاميذ','اساتذه','الاساتذه','liste','page','صفحه','اسميه']);
@@ -549,6 +570,7 @@ function classifyHeader(c){
   c=String(c||'').trim();if(!c||c.length>32)return null;
   const tk=hdrTokens(c);if(!tk.length)return null;
   if(tk.some(w=>HG.has(w)))return{k:'g'};
+  if(tk.some(w=>HPL.has(w)))return{k:'pl'};
   const ln=tk.some(w=>HLN.has(w)),fn=tk.some(w=>HFN.has(w)),full=tk.some(w=>HFULL.has(w))||tk.join('')==='name';
   if((ln&&fn)||full)return{k:'full'};
   if(ln)return{k:'ln'};if(fn)return{k:'fn'};return null}
@@ -586,7 +608,7 @@ function parseRows(rows){
       else if(map.fn!==undefined)parts.push(cleanText(r[map.fn]));
       const n=parts.filter(Boolean).join(' ');
       if(!hasLetter(n))continue;
-      out.push({n,g:map.g!==undefined?gOf(r[map.g]):''});
+      out.push({n,g:map.g!==undefined?gOf(r[map.g]):'',pl:map.pl!==undefined?cleanText(r[map.pl]):''});
     }else{
       let g='';const tc=[];const cells=r.filter(Boolean);
       for(const c of cells){
@@ -604,10 +626,12 @@ function parseRows(rows){
 const keyOf=p=>norm(p.n);
 
 /* ================= people ops ================= */
+function plByName(nm){nm=String(nm||'').trim();if(!nm)return'';const k=norm(nm);let x=S.places.find(q=>norm(q.n)===k);
+  if(!x){x={id:uid(),n:nm,c:PLC[S.places.length%PLC.length]};S.places.push(x)}return x.id}
 function addEntries(ents,replace){
   if(replace){S.people=[];S.drawn=[]}
   const seen=new Set(S.people.map(keyOf));let added=0,dup=0;
-  for(const e of ents){const p={id:uid(),n:(e.n||'').trim(),g:e.g||'',lv:0,s:''},k=keyOf(p);
+  for(const e of ents){const p={id:uid(),n:(e.n||'').trim(),g:e.g||'',lv:0,s:'',pl:e.pl?plByName(e.pl):''},k=keyOf(p);
     if(!p.n||seen.has(k)){if(p.n)dup++;continue}seen.add(k);S.people.push(p);added++}
   save();renderAll();return{added,dup}}
 function openList(name){save();S.curList=name;const L=S.lists[name];S.people=JSON.parse(JSON.stringify(L.people));S.drawn=(L.drawn||[]).slice();save();renderAll()}
@@ -626,7 +650,7 @@ function renderList(){
   const P=S.people,cnt=f=>P.filter(f).length,L=ST_LABEL();
   $('#tiles').innerHTML=[[cnt(p=>!p.s),t('stP'),'var(--ok)'],[cnt(p=>p.s==='a'),t('stA'),'var(--no)'],[cnt(p=>p.s==='e'),t('stE'),'var(--ex)'],[cnt(p=>p.g==='m'),'♂','var(--m)'],[cnt(p=>p.g==='f'),'♀','var(--f)']]
     .map(([n,l,c])=>`<div class="tile" style="--tc:${c}"><b>${n}</b><span>${l}</span></div>`).join('');
-  $('#rows').innerHTML=P.map(p=>`<div class="prow s-${p.s||'p'}" style="--c:${colorOf(p)}"><div class="av">${esc(initial(p.n))}</div><div class="pname" data-a="edit" data-v="${p.id}">${esc(p.n)}${p.lv?`<small>${'★'.repeat(p.lv)}</small>`:''}${S.drawn.includes(p.id)?'<small class="dr">✓</small>':''}</div><button class="gbtn g-${p.g||'n'}" data-a="gcyc" data-v="${p.id}">${GS[p.g||'']}</button><button class="st st-${p.s||'p'}" data-a="scyc" data-v="${p.id}">${L[p.s||'']}</button></div>`).join('');
+  $('#rows').innerHTML=P.map(p=>`<div class="prow s-${p.s||'p'}" style="--c:${colorOf(p)}"><div class="av">${esc(initial(p.n))}</div><div class="pname" data-a="edit" data-v="${p.id}">${esc(p.n)}${p.lv?`<small>${'★'.repeat(p.lv)}</small>`:''}${placeName(p)?`<small class="plt" style="--pc:${placeColor(placeName(p))}">${esc(placeName(p))}</small>`:''}${S.drawn.includes(p.id)?'<small class="dr">✓</small>':''}</div><button class="gbtn g-${p.g||'n'}" data-a="gcyc" data-v="${p.id}">${GS[p.g||'']}</button><button class="st st-${p.s||'p'}" data-a="scyc" data-v="${p.id}">${L[p.s||'']}</button></div>`).join('');
   $('#noPeople').style.display=P.length?'none':'block';$('#tapHint').style.display=P.length?'block':'none';
   const ks=Object.keys(S.lists);
   $('#saved').innerHTML=ks.length?ks.map(k=>`<span class="chip ${k===S.curList?'cur':''}" data-a="openlist" data-v="${esc(k)}">${esc(k)} <small>${S.lists[k].people.length}</small><i data-a="rmlist" data-v="${esc(k)}">×</i></span>`).join(''):`<div class="empty" style="width:100%;padding:6px">${t('noSaved')}</div>`;
@@ -674,6 +698,9 @@ function renderDraw(){
       h+=`<button class="btn sm" data-a="holadd" style="margin:4px 0 8px">${t('holAdd')}</button>`;
       h+=chk('dtSpeak',t('dtSpeak'))+`</div>`}
     else h+=`<div class="hint">${t('dtApplies')}</div>`}
+  h+=`<div class="lbl">${t('plTitle')}</div>`+chk('plRot',t('plRot'))+`<div class="hint" style="margin:0 0 6px">${t('plHint')}</div>`;
+  h+=S.places.map(x=>{const n=S.people.filter(p=>p.pl===x.id).length;return `<div class="plrow"><i style="background:${x.c}"></i><input type="text" data-pn="${x.id}" value="${esc(x.n)}"><span class="plc">${n}</span><button class="btn sm" data-a="plassign" data-v="${x.id}">${t('plAssign')}</button><button class="btn sm" data-a="pldel" data-v="${x.id}">×</button></div>`}).join('');
+  h+=`<div class="plrow"><input type="text" id="plNew" placeholder="${esc(t('plName'))}"><button class="btn sm" data-a="pladd">${t('plAdd')}</button></div>`;
   h+=`<div style="margin-top:6px">`+chk('speak',t('speakL'))+chk('sound',t('sound'))+chk('vibe',t('vibe'))+`</div>`;
   $('#opts').innerHTML=h;
   const go=$('#go');go.textContent=busy?t('running'):t('start');go.disabled=busy;
@@ -693,7 +720,7 @@ const itx=(b,i)=>b.items[i]+(b.pin&&b.pin.includes(i)?` (${t('direct')})`:'')+(b
 function rotHTML(e){
   const st=e.rot.st,n=st.length,G=e.blocks.filter(b=>!b.rotb);
   return `<div class="rotw"><table class="rot"><thead><tr><th></th>${st.map((_,r)=>`<th>${t('round')} ${r+1}${e.rot.dur?`<small>${e.rot.dur} ${t('min')}</small>`:''}${e.rot.dates&&e.rot.dates[r]?`<span class="dt" data-a="dtedit" data-v="r:${r}">${esc(fmtDT(e.rot.dates[r]))}</span>`:''}</th>`).join('')}</tr></thead><tbody>${G.map((b,g)=>`<tr><td style="--gc:${bc(b,g)}">${esc(b.h)}</td>${st.map((_,r)=>`<td>${esc(st[(g+r)%n])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}
-function blocksText(title,blocks){return[title,...blocks.map(b=>(b.h?b.h+(b.date?' — '+fmtDT(b.date):'')+':\n':'')+b.items.map((x,i)=>(b.num?(i+1)+'. ':'• ')+(b.dates&&b.dates[i]?fmtDT(b.dates[i])+' — ':'')+itx(b,i)).join('\n'))].join('\n\n')}
+function blocksText(title,blocks){return[title,...blocks.map(b=>(b.h?b.h+(b.date?' — '+fmtDT(b.date):'')+':\n':'')+b.items.map((x,i)=>(b.num?(i+1)+'. ':'• ')+(b.dates&&b.dates[i]?fmtDT(b.dates[i])+' — ':'')+itp(b,i)).join('\n'))].join('\n\n')}
 function renderHist(){
   $('#hist').innerHTML=S.history.length?S.history.map((h,i)=>`<div class="hitem"><div class="hh"><span>${new Date(h.ts).toLocaleString(S.lang==='ar'?'ar-DZ':'fr-FR',{dateStyle:'short',timeStyle:'short'})}</span><span><button class="btn sm" data-a="hcopy" data-v="${i}">${t('copy')}</button> <button class="btn sm" data-a="hdel" data-v="${i}">${t('del')}</button></span></div><div class="hbody">${esc(blocksText(h.title,h.blocks))}</div></div>`).join(''):`<div class="empty">${t('empty')}</div>`;
 }
@@ -707,6 +734,12 @@ function showWhatsNew(){
   modal(`<h3>${t('wnTitle')} ${esc(cur.v)}</h3><div class="hint">${esc(cur.d)}</div>${li(cur[L])}`+
     (old.length?`<div class="lbl" style="margin-top:14px">${t('olderVer')}</div>`+old.map(o=>`<div style="margin-top:8px"><b>${esc(o.v)}</b> <span class="hint">${esc(o.d)}</span>${li(o[L])}</div>`).join(''):'')+
     `<div class="row" style="margin-top:14px"><button class="btn pri" data-a="close">${t('gotIt')}</button></div>`)}
+let PLB=null;
+function showPlBulk(){
+  const x=S.places.find(q=>q.id===PLB.id);if(!x)return;
+  modal(`<h3>${esc(x.n)}</h3><div class="hint">${t('plPick')}</div>`+
+    S.people.map(p=>{const on=PLB.sel.has(p.id);return `<div class="irow ${on?'':'off'}"><button class="ick" data-a="plpick" data-v="${p.id}">${on?'✓':''}</button><span style="flex:1">${esc(p.n)}</span><small class="hint">${esc(placeName(p))}</small></div>`}).join('')+
+    `<div class="row" style="margin-top:14px"><button class="btn pri" data-a="pldone">${t('done')}</button><button class="btn" data-a="plall">${t('plAll')}</button></div>`)}
 let PINR=null;
 function showPin(id){
   PINR=id;const r=S.rl.find(x=>x.id===id);if(!r)return;
@@ -717,9 +750,10 @@ function showPin(id){
 function modal(html){const m=$('#modal');m.innerHTML=`<div class="sheet">${html}</div>`;m.classList.add('on')}
 function closeModal(){const m=$('#modal');m.classList.remove('on');m.innerHTML='';EDIT=null;IMP=null}
 function openEdit(id){
-  const p=S.people.find(x=>x.id===id);if(!p)return;EDIT={id,g:p.g||'',lv:p.lv||0,s:p.s||''};
+  const p=S.people.find(x=>x.id===id);if(!p)return;EDIT={id,g:p.g||'',lv:p.lv||0,s:p.s||'',pl:p.pl||''};
   modal(`<h3>${t('edit')}</h3><div class="lbl">${t('fullName')}</div><input id="eN" type="text" value="${esc(p.n)}">
   <div class="lbl">${t('gender')}</div><div class="seg">${segHTML([['m','♂ '+t('male')],['f','♀ '+t('female')],['',t('nd')]],EDIT.g,'eg')}</div>
+  ${S.places.length?`<div class="lbl">${t('place')}</div><div class="chips">${[['',t('plNone')],...S.places.map(x=>[x.id,x.n])].map(([v,l])=>`<button class="chip ${EDIT.pl===v?'on':''}" data-a="epl" data-v="${v}">${esc(l)}</button>`).join('')}</div>`:''}
   <div class="lbl">${t('status')}</div><div class="seg">${segHTML([['',t('stP')],['a',t('stA')],['e',t('stE')]],EDIT.s,'es')}</div>
   <div class="lbl">${t('level')}</div><div class="seg">${segHTML([['0',t('lvNone')],['1','★'],['2','★★'],['3','★★★']],String(EDIT.lv),'el')}</div>
   <div class="acts"><button class="btn pri" data-a="esave">${t('save')}</button><button class="btn dng" data-a="edel">${t('del')}</button><button class="btn" data-a="close">${t('cancel')}</button></div>`);
@@ -868,24 +902,25 @@ async function countEffect(names,idx){
 const EFFECTS={slot:slotEffect,wheel:wheelEffect,count:countEffect};
 
 /* ================= draw logic ================= */
-function makeGroups(pool,ng,bG,bL){
+function makeGroups(pool,ng,bG,bL,bP){
   const lv=p=>p.lv||2;let order=shuffle(pool);
   if(bL)order.sort((a,b)=>lv(b)-lv(a));
+  else if(bP){const cp={};pool.forEach(p=>{cp[p.pl||'']=(cp[p.pl||'']||0)+1});order.sort((a,b)=>cp[a.pl||'']-cp[b.pl||''])}
   else if(bG){const cnt={m:0,f:0,'':0};pool.forEach(p=>cnt[p.g||'']++);order.sort((a,b)=>cnt[a.g||'']-cnt[b.g||''])}
-  const G=Array.from({length:ng},()=>({m:[],cnt:{m:0,f:0,'':0},sum:0}));
+  const G=Array.from({length:ng},()=>({m:[],cnt:{m:0,f:0,'':0},cp:{},sum:0}));
   for(const p of order){
     const minSize=Math.min(...G.map(x=>x.m.length)),cand=G.filter(x=>x.m.length===minSize);
     let best=[],bs=Infinity;
-    for(const x of cand){const s=(bG?x.cnt[p.g||'']*1000:0)+(bL?x.sum:0);if(s<bs){bs=s;best=[x]}else if(s===bs)best.push(x)}
-    const x=best[randInt(best.length)];x.m.push(p);x.cnt[p.g||'']++;x.sum+=lv(p)}
+    for(const x of cand){const s=(bP?(x.cp[p.pl||'']||0)*10000:0)+(bG?x.cnt[p.g||'']*1000:0)+(bL?x.sum:0);if(s<bs){bs=s;best=[x]}else if(s===bs)best.push(x)}
+    const x=best[randInt(best.length)];x.m.push(p);x.cnt[p.g||'']++;x.cp[p.pl||'']=(x.cp[p.pl||'']||0)+1;x.sum+=lv(p)}
   return G.map(x=>x.m)}
 function paintResult(entry,fx){
   const{mode,title,blocks}=entry;
   const r=$('#result');r.style.display='block';
   const dtl=(o,v)=>{const hn=holName(o.d);return `<span class="dt${hn?' hol':''}" data-a="dtedit" data-v="${v}">${hn?'⚠ ':''}${esc(fmtDT(o))}</span>`};
   let h=`<h3>${esc(title)}</h3>`;
-  if(isGrouped({mode,blocks})){h+='<div class="groups">'+blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="gcard" style="--gc:${bc(b,i)};animation-delay:${i*90}ms"><h4>${esc(b.h)} <small>(${b.items.length})</small>${b.date?dtl(b.date,i+':g'):''}</h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))}</div>`).join('')}</div>`).join('')+'</div>'}
-  else h+=blocks.map((b,bi)=>`<div class="items">${b.items.map((x,i)=>`<div class="it" style="--c:${PAL[i%PAL.length]};animation-delay:${i*60}ms"><em>${b.num?i+1:'•'}</em>${esc(itx(b,i))}${b.dates&&b.dates[i]?dtl(b.dates[i],bi+':'+i):''}</div>`).join('')}</div>`).join('');
+  if(isGrouped({mode,blocks})){h+='<div class="groups">'+blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="gcard" style="--gc:${bc(b,i)};animation-delay:${i*90}ms"><h4>${esc(b.h)} <small>(${b.items.length})</small>${b.date?dtl(b.date,i+':g'):''}</h4>${b.items.map((x,k)=>`<div class="gi"><span>${esc(itx(b,k))}</span>${plb(b,k)}</div>`).join('')}</div>`).join('')+'</div>'}
+  else h+=blocks.map((b,bi)=>`<div class="items">${b.items.map((x,i)=>`<div class="it" style="--c:${PAL[i%PAL.length]};animation-delay:${i*60}ms"><em>${b.num?i+1:'•'}</em>${esc(itx(b,i))}${plb(b,i)}${b.dates&&b.dates[i]?dtl(b.dates[i],bi+':'+i):''}</div>`).join('')}</div>`).join('');
   if(entry.rot)h+=rotHTML(entry);
   const hasDt=blocks.some(b=>b.date||(b.dates&&b.dates.some(Boolean)))||(entry.rot&&entry.rot.dates);
   h+=`<div class="acts"><button class="btn" data-a="speakres">🔊 ${t('speakBtn')}</button><button class="btn" data-a="copyres">${t('copy')}</button><button class="btn" data-a="shareres">${t('share')}</button><button class="btn" data-a="pdfres">${t('pdf')}</button><button class="btn" data-a="bigres">${t('big')}</button>${hasDt?`<button class="btn" data-a="dtcal">📅 ${t('dtCal')}</button>`:''}${S.dt.on&&['order','groups','rotation'].includes(mode)?`<button class="btn" data-a="dtredo">${t('dtRedo')}</button>`:''}${UNDO.length?`<button class="btn" data-a="undo">↶ ${t('undo')}</button>`:''}</div>`;
@@ -900,12 +935,13 @@ function finish(mode,title,blocks,extra){
 function buildICS(e){
   const ev=[],esc2=x=>String(x).replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n');
   const G=e.blocks.filter(b=>!b.rotb&&!b.none);
-  if(e.mode==='order'){const b=e.blocks[0];b.items.forEach((x,i)=>{if(b.dates&&b.dates[i])ev.push({s:`${e.title}: ${x}`,d:'',o:b.dates[i]})})}
-  else if(e.mode==='groups')G.forEach(b=>{if(b.date)ev.push({s:`${e.title}: ${b.h}`,d:b.items.join('\n'),o:b.date})});
+  if(e.mode==='order'){const b=e.blocks[0];b.items.forEach((x,i)=>{if(b.dates&&b.dates[i])ev.push({s:`${e.title}: ${x}`,d:'',o:b.dates[i],l:b.pl&&b.pl[i]||''})})}
+  else if(e.mode==='groups')G.forEach(b=>{if(b.date)ev.push({s:`${e.title}: ${b.h}`,d:b.items.map((_,k)=>itp(b,k)).join('\n'),o:b.date,l:[...new Set((b.pl||[]).filter(Boolean))].join(' / ')})});
   else if(e.mode==='rotation'&&e.rot.dates){const st=e.rot.st,n=st.length;st.forEach((_,r)=>{if(e.rot.dates[r])ev.push({s:`${e.title}: ${t('round')} ${r+1}`,d:G.map((b,g)=>`${b.h} → ${st[(g+r)%n]}`).join('\n'),o:e.rot.dates[r]})})}
   const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,''),L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Delbaz _EPS//Tirage_Smart//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
   ev.forEach((x,i)=>{const d0=x.o.d.replace(/-/g,'');L.push('BEGIN:VEVENT',`UID:${e.ts}-${i}@tirage-smart`,`DTSTAMP:${stamp}`,`SUMMARY:${esc2(x.s)}`);
     if(x.d)L.push(`DESCRIPTION:${esc2(x.d)}`);
+    if(x.l)L.push(`LOCATION:${esc2(x.l)}`);
     if(x.o.t){const[hh,mm]=x.o.t.split(':').map(Number),st=parseISO(x.o.d);st.setHours(hh,mm);const en=new Date(st.getTime()+3600000),f=q=>`${q.getFullYear()}${pad2(q.getMonth()+1)}${pad2(q.getDate())}T${pad2(q.getHours())}${pad2(q.getMinutes())}00`;L.push(`DTSTART:${f(st)}`,`DTEND:${f(en)}`);L.push('BEGIN:VALARM','ACTION:DISPLAY',`DESCRIPTION:${esc2(x.s)}`,'TRIGGER:-PT30M','END:VALARM')}
     else{const nx=parseISO(x.o.d);nx.setDate(nx.getDate()+1);L.push(`DTSTART;VALUE=DATE:${d0}`,`DTEND;VALUE=DATE:${isoOf(nx).replace(/-/g,'')}`);L.push('BEGIN:VALARM','ACTION:DISPLAY',`DESCRIPTION:${esc2(x.s)}`,'TRIGGER:-PT15H','END:VALARM')}
     L.push('END:VEVENT')});
@@ -923,7 +959,7 @@ function downloadICS(e){
 /* ---- undo ---- */
 const UNDO=[];let UBT=0;
 function snap(label,o){o=o||{};try{
-  const x={people:S.people,drawn:S.drawn,lists:S.lists,curList:S.curList,history:S.history};if(o.hol)x.hol=S.dt.hol;
+  const x={people:S.people,drawn:S.drawn,lists:S.lists,curList:S.curList,history:S.history,places:S.places};if(o.hol)x.hol=S.dt.hol;
   UNDO.push({l:label,s:JSON.stringify(x),last:window.LAST?window.LAST.ts:0});if(UNDO.length>10)UNDO.shift()}catch(e){}
   if(!o.quiet)showUbar(label)}
 function showUbar(label){
@@ -933,7 +969,7 @@ function showUbar(label){
 function hideUbar(){const b=$('#ubar');if(b)b.classList.remove('on')}
 function doUndo(){
   const u=UNDO.pop();hideUbar();if(!u)return toast(t('nothingUndo'));
-  const o=JSON.parse(u.s);S.people=o.people;S.drawn=o.drawn;S.lists=o.lists;S.curList=o.curList;S.history=o.history;if(o.hol)S.dt.hol=o.hol;
+  const o=JSON.parse(u.s);S.people=o.people;S.drawn=o.drawn;S.lists=o.lists;S.curList=o.curList;S.history=o.history;if(o.places)S.places=o.places;if(o.hol)S.dt.hol=o.hol;
   window.LAST=S.history.find(h=>h.ts===u.last)||null;save();closeModal();renderAll();
   if(window.LAST)paintResult(window.LAST,false);else $('#result').style.display='none';
   toast(t('undone'))}
@@ -1010,9 +1046,9 @@ async function runDraw(){
   let entry=null,speakNow=false;
   try{
     if(S.mode==='winner'){
-      const k=Math.min(S.count,pool.length),rem=pool.slice(),won=[];
+      const k=Math.min(S.count,pool.length),rem=pool.slice(),won=[],seq=S.plRot?rotByPlace(pool,k):null;
       for(let j=0;j<k;j++){
-        const i=randInt(rem.length);
+        const i=seq?rem.indexOf(seq[j]):randInt(rem.length);
         await EFFECTS[S.effect](rem.map(dn),i);
         const w=rem[i];won.push(w);rem.splice(i,1);
         eff().querySelector('.slot')?.classList.add('fin');
@@ -1020,13 +1056,13 @@ async function runDraw(){
         await speak(dn(w));
         await sleep(j<k-1?600:300)}
       if(S.noRepeat){S.drawn.push(...won.map(p=>p.id));save()}
-      entry=finish('winner',t('resWinner'),[{h:'',num:true,items:won.map(dn)}]);
+      entry=finish('winner',t('resWinner'),[{h:'',num:true,items:won.map(dn),pl:plOf(won)}]);
     }else if(S.mode==='order'){
       await spin(pool,14,70);
-      entry=finish('order',t('resOrder'),[{h:'',num:true,items:shuffle(pool).map(dn)}]);speakNow=true;
+      const ord=S.plRot?rotByPlace(pool):shuffle(pool);entry=finish('order',t('resOrder'),[{h:'',num:true,items:ord.map(dn),pl:plOf(ord)}]);speakNow=true;
     }else if(S.mode==='roles'){
       const need=RL.map(r=>Math.max(0,r.c-r.fx.length)),mem=RL.map(r=>r.fx.map(x=>S.people.find(p=>p.id===x)).filter(Boolean));
-      const pinN=mem.map(m=>m.length),sh=shuffle(pool),total=need.reduce((a,b)=>a+b,0);
+      const pinN=mem.map(m=>m.length),sh=S.plRot?rotByPlace(pool):shuffle(pool),total=need.reduce((a,b)=>a+b,0);
       if(total>sh.length)toast(t('rolesFew'));
       let k=0,pass=0;
       while(k<sh.length&&need.some(n=>n>pass)){RL.forEach((r,i)=>{if(need[i]>pass&&k<sh.length)mem[i].push(sh[k++])});pass++}
@@ -1035,26 +1071,26 @@ async function runDraw(){
       await spin(pool.length?pool:S.people,14,70);
       const rng=n=>Array.from({length:n},(_,i)=>i);
       let blocks;
-      if(mem.every(m=>m.length===1))blocks=[{h:'',num:false,items:RL.map((r,i)=>`${r.n}: ${dn(mem[i][0])}`),pin:rng(RL.length).filter(i=>pinN[i]>0)}];
-      else{blocks=RL.map((r,i)=>({h:r.n,items:mem[i].map(dn),pin:rng(pinN[i])}));if(rest.length)blocks.push({h:t('noRole'),items:rest.map(dn),none:true})}
+      if(mem.every(m=>m.length===1))blocks=[{h:'',num:false,items:RL.map((r,i)=>`${r.n}: ${dn(mem[i][0])}`),pin:rng(RL.length).filter(i=>pinN[i]>0),pl:S.plRot?RL.map((r,i)=>placeName(mem[i][0])):undefined}];
+      else{blocks=RL.map((r,i)=>({h:r.n,items:mem[i].map(dn),pin:rng(pinN[i]),pl:plOf(mem[i])}));if(rest.length)blocks.push({h:t('noRole'),items:rest.map(dn),none:true,pl:plOf(rest)})}
       entry=finish('roles',t('resRoles'),blocks);speakNow=true;
     }else if(S.mode==='rotation'){
-      const ng=ST.length,G=makeGroups(pool,ng,S.bG,false);
+      const ng=ST.length,G=makeGroups(pool,ng,S.bG,false,S.plRot);
       await spin(pool,12,80);
-      const gb=G.map((m,i)=>({h:`${t('group')} ${i+1}`,items:m.map(dn)}));
+      const gb=G.map((m,i)=>({h:`${t('group')} ${i+1}`,items:m.map(dn),pl:plOf(m)}));
       const lines=gb.map((b,g)=>`${b.h}: `+ST.map((_,r)=>ST[(g+r)%ST.length]).join(S.lang==='ar'?' ← ':' → '));
       gb.push({h:t('rotTable'),items:lines,none:true,rotb:true});
       entry=finish('rotation',t('rotTitle'),gb,{rot:{st:ST,dur:S.rDur}});speakNow=true;
     }else{
       let ng=S.gType==='num'?S.gVal:Math.ceil(pool.length/S.gVal);ng=Math.max(1,Math.min(ng,pool.length));
-      const G=makeGroups(pool,ng,S.bG,S.bL);
+      const G=makeGroups(pool,ng,S.bG,S.bL,S.plRot);
       await spin(pool,12,80);
       const ar=S.lang==='ar';
       entry=finish('groups',t('resGroups'),G.map((m,i)=>{
-        let items=m.map(dn),b={};
+        let mm=m.slice(),b={};
         if(S.gTeams){const nm=t('teamNames');b.h=`${t('team')} ${i<8?nm[i]:i+1}`;b.c=i<8?TEAMC[i]:PALD[i%PALD.length]}else b.h=`${t('group')} ${i+1}`;
-        if(S.gCap&&items.length){const ci=randInt(items.length);items=[items[ci],...items.filter((_,k)=>k!==ci)];b.cap=0}
-        b.items=items;return b}));speakNow=true;
+        if(S.gCap&&mm.length){const ci=randInt(mm.length);mm=[mm[ci],...mm.filter((_,k)=>k!==ci)];b.cap=0}
+        b.items=mm.map(dn);b.pl=plOf(mm);return b}));speakNow=true;
     }
   }finally{busy=false;stage.classList.remove('on');renderAll()}
   if(speakNow&&entry)speakAll(speechLines(entry));
@@ -1066,9 +1102,9 @@ let WL=null;
 function showBig(){
   const e=window.LAST;if(!e)return;
   let h=`<button class="bclose" data-a="closebig">×</button><div class="btitle">${esc(e.title)}</div>`;
-  if(isGrouped(e))h+='<div class="bgroups">'+e.blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="bg" style="--gc:${bc(b,i)}"><h4>${esc(b.h)}${b.date?` <span class="dt">${esc(fmtDT(b.date))}</span>`:''}</h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))}</div>`).join('')}</div>`).join('')+'</div>'+(e.rot?rotHTML(e):'');
+  if(isGrouped(e))h+='<div class="bgroups">'+e.blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="bg" style="--gc:${bc(b,i)}"><h4>${esc(b.h)}${b.date?` <span class="dt">${esc(fmtDT(b.date))}</span>`:''}</h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))} ${plb(b,k)}</div>`).join('')}</div>`).join('')+'</div>'+(e.rot?rotHTML(e):'');
   else if(e.blocks[0].items.length===1)h+=`<div class="bone">${esc(e.blocks[0].items[0])}</div>`;
-  else h+='<div class="blist">'+e.blocks[0].items.map((x,i)=>`<div style="--c:${PAL[i%PAL.length]}"><em>${e.blocks[0].num?i+1:'•'}</em><span>${esc(itx(e.blocks[0],i))}</span>${e.blocks[0].dates&&e.blocks[0].dates[i]?`<span class="dt">${esc(fmtDT(e.blocks[0].dates[i]))}</span>`:''}</div>`).join('')+'</div>';
+  else h+='<div class="blist">'+e.blocks[0].items.map((x,i)=>`<div style="--c:${PAL[i%PAL.length]}"><em>${e.blocks[0].num?i+1:'•'}</em><span>${esc(itx(e.blocks[0],i))}</span>${plb(e.blocks[0],i)}${e.blocks[0].dates&&e.blocks[0].dates[i]?`<span class="dt">${esc(fmtDT(e.blocks[0].dates[i]))}</span>`:''}</div>`).join('')+'</div>';
   const b=$('#big');b.innerHTML=h;b.classList.add('on');b.scrollTop=0;
   try{if(navigator.wakeLock)navigator.wakeLock.request('screen').then(w=>{WL=w}).catch(()=>{})}catch(err){}}
 function closeBig(){$('#big').classList.remove('on');$('#big').innerHTML='';try{WL&&WL.release();WL=null}catch(e){}}
@@ -1133,8 +1169,8 @@ async function makePDF(entry){
       y+=rh0});
     y+=24}
   if(!isGrouped(entry)){
-    const b=entry.blocks[0],n=b.items.length,hasD=!!(b.dates&&b.dates.some(Boolean));let cols=0,rh=62;
-    const dstr=i=>hasD&&b.dates[i]?fmtDT(b.dates[i]):'';
+    const b=entry.blocks[0],n=b.items.length,hasD=!!((b.dates&&b.dates.some(Boolean))||(b.pl&&b.pl.some(Boolean)));let cols=0,rh=62;
+    const dstr=i=>[b.pl&&b.pl[i],b.dates&&b.dates[i]?fmtDT(b.dates[i]):''].filter(Boolean).join(' · ');
     for(const c of(hasD?[1,2]:[1,2,3])){const per=Math.ceil(n/c),r=Math.min(62,Math.floor(avail()/per));if(r>=(c===1?46:c===2?40:34)){cols=c;rh=r;break}}
     if(!cols){for(const c of(hasD?[2]:[2,3])){const per=Math.ceil(n/c),r=Math.min(52,Math.floor((BOT-y)/per));if(r>=(c===2?40:34)){cols=c;rh=r;break}}}
     if(!cols){b.items.forEach((it,i)=>{if(y+62>BOT)newPage();row2(b.num?i+1:'•',itx(b,i),i,M,W-2*M,PALD[i%PALD.length],62,y,dstr(i));y+=62})}
@@ -1158,12 +1194,12 @@ async function makePDF(entry){
           rr(xx,y,cw,ch,'#f8fafc');g.fillStyle=c;g.beginPath();if(g.roundRect)g.roundRect(xx,y,cw,hh-6+dd,[12,12,0,0]);else g.rect(xx,y,cw,hh-6+dd);g.fill();
           fit(`${b.h} (${b.items.length})`,ar?xx+cw-24:xx+24,y+(hh-6)/2+(dd?-4:0),cw-48,700,Math.min(34,Math.round(hh*.42)),'#fff');
           if(dd&&b.date)fit(fmtDT(b.date),ar?xx+cw-24:xx+24,y+hh-6+dd-20,cw-48,500,21,'#ffffffe6');
-          b.items.forEach((it,k)=>{const yy=y+hh+dd+k*rh+rh/2;fit(itx(b,k),ar?xx+cw-24:xx+24,yy,cw-48,500,fs,'#0f172a');g.fillStyle='#e2e8f0';g.fillRect(xx+20,yy+rh/2-1,cw-40,1)})});
+          b.items.forEach((it,k)=>{const yy=y+hh+dd+k*rh+rh/2;fit(itp(b,k),ar?xx+cw-24:xx+24,yy,cw-48,500,fs,'#0f172a');g.fillStyle='#e2e8f0';g.fillRect(xx+20,yy+rh/2-1,cw-40,1)})});
         y+=rowH+gap}
       y-=gap
     }else{
       bl.forEach((b,bi)=>{if(y+110>BOT)newPage();text(`${b.h} (${b.items.length})`+(b.date?' — '+fmtDT(b.date):''),XS,y+10,`700 40px ${FONT}`,bc(b,bi));y+=48;
-        b.items.forEach((it,i)=>{if(y+62>BOT)newPage();row2(i+1,itx(b,i),i,M,W-2*M,bc(b,bi),62,y);y+=62});y+=24})
+        b.items.forEach((it,i)=>{if(y+62>BOT)newPage();row2(i+1,itx(b,i),i,M,W-2*M,bc(b,bi),62,y,b.pl&&b.pl[i]||'');y+=62});y+=24})
     }
   }
   /* signature boxes: teacher / supervisor / director */
@@ -1211,6 +1247,12 @@ document.addEventListener('click',async e=>{
     case'dtclr':saveDtEdit(true);break;
     case'dtredo':{const e0=window.LAST;if(e0){snap(t('uRedo'));applyDates(e0);save();paintResult(e0,false)}break}
     case'undo':doUndo();break;
+    case'pladd':{const el=$('#plNew'),n=(el&&el.value||'').trim();if(!n)break;if(S.places.some(q=>norm(q.n)===norm(n))){toast(t('exists'));break}S.places.push({id:uid(),n,c:PLC[S.places.length%PLC.length]});save();renderAll();break}
+    case'pldel':{snap(t('uPlace'));S.places=S.places.filter(x=>x.id!==v);S.people.forEach(p=>{if(p.pl===v)p.pl=''});save();renderAll();break}
+    case'plassign':{PLB={id:v,sel:new Set(S.people.filter(p=>p.pl===v).map(p=>p.id))};showPlBulk();break}
+    case'plpick':{if(PLB.sel.has(v))PLB.sel.delete(v);else PLB.sel.add(v);T.textContent=PLB.sel.has(v)?'✓':'';T.closest('.irow').classList.toggle('off',!PLB.sel.has(v));break}
+    case'plall':{const all=PLB.sel.size<S.people.length;PLB.sel=new Set(all?S.people.map(p=>p.id):[]);showPlBulk();break}
+    case'pldone':{snap(t('uPlAs'));S.people.forEach(p=>{if(PLB.sel.has(p.id))p.pl=PLB.id;else if(p.pl===PLB.id)p.pl=''});save();closeModal();renderAll();break}
     case'dtpick':DTE.d=v;DTE.view=v.slice(0,7);dtRender();break;
     case'dtmo':{const[y,m]=DTE.view.split('-').map(Number),d=new Date(y,m-1+Number(v),1);DTE.view=`${d.getFullYear()}-${pad2(d.getMonth()+1)}`;dtRender();break}
     case'dtq':{const td=isoOf(new Date()),b=DTE.d||td;
@@ -1241,10 +1283,11 @@ document.addEventListener('click',async e=>{
     case'gcyc':{const p=S.people.find(x=>x.id===v);if(p){p.g=p.g===''?'m':p.g==='m'?'f':'';save();renderAll()}break}
     case'scyc':{const p=S.people.find(x=>x.id===v);if(p){p.s=p.s===''?'a':p.s==='a'?'e':'';save();renderAll()}break}
     case'edit':openEdit(v);break;
+    case'epl':EDIT.pl=v;$$('[data-a=epl]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));break;
     case'eg':EDIT.g=v;$$('[data-a=eg]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));break;
     case'es':EDIT.s=v;$$('[data-a=es]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));break;
     case'el':EDIT.lv=Number(v);$$('[data-a=el]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));break;
-    case'esave':{const p=S.people.find(x=>x.id===EDIT.id);if(p){const n=$('#eN').value.trim();if(n)p.n=n;p.g=EDIT.g;p.s=EDIT.s;p.lv=EDIT.lv;save()}closeModal();renderAll();break}
+    case'esave':{const p=S.people.find(x=>x.id===EDIT.id);if(p){const n=$('#eN').value.trim();if(n)p.n=n;p.g=EDIT.g;p.s=EDIT.s;p.lv=EDIT.lv;p.pl=EDIT.pl||'';save()}closeModal();renderAll();break}
     case'edel':{snap(t('uPerson'));S.people=S.people.filter(x=>x.id!==EDIT.id);S.drawn=S.drawn.filter(x=>x!==EDIT.id);save();closeModal();renderAll();break}
     case'close':closeModal();break;
     case'add':{const ta=$('#ta'),ents=parseRows(ta.value.split(/\r?\n/).map(l=>[l]));if(ents.length){const r=addEntries(ents,false);ta.value='';toast(`${r.added} ${t('added')}${r.dup?` · ${r.dup} ${t('impDup')}`:''}`)}break}
@@ -1290,6 +1333,7 @@ document.addEventListener('input',e=>{
   const d=e.target.dataset;
   if(d&&d.ei!==undefined&&IMP){IMP.ents[d.ei].n=e.target.value;return}
   if(d&&d.hdr){S.hdr[d.hdr]=e.target.value;save();return}
+  if(d&&d.pn){const x=S.places.find(q=>q.id===d.pn);if(x){x.n=e.target.value;save()}return}
   if(d&&d.hn){const h=S.dt.hol.find(x=>x.id===d.hn);if(h){h.n=e.target.value;save()}return}
   if(d&&d.sn){const r=S.sl.find(x=>x.id===d.sn);if(r){r.n=e.target.value;save()}return}
   if(d&&d.rn){const r=S.rl.find(x=>x.id===d.rn);if(r){r.n=e.target.value;save()}return}
