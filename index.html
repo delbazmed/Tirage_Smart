@@ -239,12 +239,17 @@ html[data-theme=dark] .dt.hol{color:#fbbf24}
 .ds-acts .pri{grid-column:1/3;background:var(--grad);color:#04281a;font-weight:700;border:0;font-size:15px}.ds-acts .del{color:#f43f5e}
 
 .pl{margin-inline-start:auto;display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--text) 9%,transparent);white-space:nowrap}
-.pl i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.pl i{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
 .pl+.dt{margin-inline-start:8px}
 .gcard .gi{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.gcard .gi .pl{margin:0;font-size:11.5px;background:none;padding:0;color:var(--muted)}
 .bg .pl,.blist .pl{font-size:clamp(12px,2.8vw,18px)}
 .plt{border-inline-start:3px solid var(--pc);padding-inline-start:5px;margin-inline-start:6px}
 .plrow{display:flex;gap:8px;align-items:center;margin:6px 0}.plrow>i{width:12px;height:12px;border-radius:50%;flex:none}.plrow input[type=text]{flex:1;min-width:0}.plc{min-width:26px;text-align:center;font-weight:700;color:var(--acc)}
+
+.it{align-items:center;min-width:0}.it .nm{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.mt{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none;max-width:52%}
+.mt .pl,.mt .dt{margin:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.blist div{align-items:center}.blist .nm{flex:1 1 auto;min-width:0}.blist .mt{margin-inline-start:auto}
 </style>
 </head>
 <body>
@@ -363,7 +368,7 @@ html[data-theme=dark] .dt.hol{color:#fbbf24}
 
 <script>
 'use strict';
-const APP={name:'Tirage_Smart',ver:'1.6.0',date:'2026-11-09',dev:'Delbaz Mohammed · Delbaz _EPS'};
+const APP={name:'Tirage_Smart',ver:'1.6.1',date:'2026-11-09',dev:'Delbaz Mohammed · Delbaz _EPS'};
 /* ================= i18n ================= */
 const I18N={
 ar:{app:'قرعة ذكية',tabList:'القائمة',tabDraw:'القرعة',tabHist:'السجل',tabSet:'الإعدادات',
@@ -421,6 +426,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const LS='tirage_smart_v1';
 const def=()=>({lang:'ar',theme:'auto',people:[],lists:{},curList:'',drawn:[],history:[],effect:'slot',sound:true,vibe:true,speak:true,rate:0.95,mode:'winner',count:1,noRepeat:false,gType:'num',gVal:2,tab:'list',gf:'all',roles:'',bG:false,bL:false,gExe:false,gAbs:false,seenVer:'',rl:[],sl:[],places:[],plRot:false,dt:{on:false,start:'',time:'',mode:'days',n:1,skip:[5,6],wd:[6],hf:false,hol:[]},dtSpeak:false,rDur:0,gTeams:false,gCap:false,rAll:false,rExe:false,rAbs:false,hdr:{teacher:'',school:'',season:'',supervisor:'',director:''}});
 const CHANGELOG=[
+ {v:'1.6.1',d:'2026-11-09',ar:['إصلاح: اختلال عرض الترتيب عند ظهور الاسم والمكان والتاريخ معاً؛ صار المكان والتاريخ في عمود منظّم بجانب الاسم، في الشاشة والعرض الكبير'],fr:['Correctif : mise en page de l’ordre quand nom, lieu et date s’affichent ensemble ; le lieu et la date sont désormais empilés à côté du nom (écran et grand format)']},
  {v:'1.6.0',d:'2026-11-09',ar:['خاصية «المكان» لكل شخص (الأبيض سيدي الشيخ، أربوات، وأي مكان تضيفه) مع تعيين جماعي وتعديل فردي','«تناوب الأمكنة»: في الفائز والترتيب والأدوار يتناوب الاختيار بين الأمكنة، وفي الأفواج والتناوب يتوزع كل مكان بالتساوي على الأفواج','يظهر المكان بجانب الاسم في الشاشة والنسخ والعرض الكبير وPDF، وفي حقل «الموقع» بملف التقويم','استيراد عمود «المكان/السكن» من Excel تلقائياً'],fr:['Lieu par personne (ex. Sidi Cheikh, Arbaouat, ou tout lieu ajouté) avec affectation groupée et modification individuelle','Alternance des lieux : gagnant, ordre et rôles alternent entre les lieux ; groupes et rotation répartissent chaque lieu équitablement','Le lieu apparaît à côté du nom (écran, copie, affichage grand format, PDF) et dans le champ « Lieu » du calendrier','Import automatique d’une colonne « Lieu / Adresse » depuis Excel']},
  {v:'1.5.0',d:'2026-11-09',ar:['نافذة تعديل التاريخ بتصميم جديد: تقويم شهري، أزرار سريعة (اليوم، غداً، +أسبوع، +شهر) وأوقات جاهزة','تخطي العطل: العطل الوطنية الثابتة (اختياري) وعطلك الخاصة بتاريخ أو فترة، والمواعيد تنتقل تلقائياً إلى أقرب يوم متاح','عند تغيير موعد: اختر «هذا الموعد فقط» أو «هذا الموعد وما بعده»، مع تنبيه ⚠ وزر «تأجيل لأقرب يوم متاح»','زر «تراجع» (حتى 10 خطوات) بعد مسح القائمة أو حذف قائمة/سجل/شخص، وتصفير المسحوبين، وإعادة القرعة، وتعديل التواريخ','«إضافة إلى تقويم الهاتف» عبر نافذة المشاركة مباشرة، مع شرح إن لم يدعمها المتصفح','«إعادة توزيع التواريخ» أصبحت «إعادة حساب التواريخ» (قابلة للتراجع)'],fr:['Nouvelle fenêtre de modification de date : calendrier mensuel, raccourcis (aujourd’hui, demain, +1 sem., +1 mois) et heures prêtes','Jours fériés ignorés : fériés nationaux fixes (optionnel) et congés personnalisés (date ou période), report automatique au prochain jour disponible','Lors d’un changement : « cette date seulement » ou « cette date et les suivantes », avec alerte ⚠ et bouton de report','Bouton « Annuler » (10 étapes) après effacement de liste, suppression de liste/historique/personne, réinitialisation des tirés, nouveau tirage et modification des dates','« Ajouter au calendrier » via le partage direct, avec explication si le navigateur ne le gère pas','« Redistribuer les dates » devient « Recalculer les dates » (annulable)']},
  {v:'1.4.0',d:'2026-11-09',ar:['تواريخ اختيارية للترتيب والأفواج والتناوب: كل ساعات / أيام / أسابيع، أو يوم محدد (كل سبت، أحد وأربعاء…) مع تخطي أيام معيّنة','تعديل أي تاريخ يدوياً بالضغط عليه، وإعادة التوزيع التلقائي','يظهر التاريخ في الشاشة والنسخ والعرض الكبير وPDF، ولا يظهر إن لم يُفعَّل','زر «إضافة إلى تقويم الهاتف» (ملف .ics) ونطق التاريخ اختيارياً'],fr:['Dates facultatives pour l’ordre, les groupes et la rotation : toutes les x heures / jours / semaines, ou jour précis (chaque samedi, dimanche et mercredi…) avec jours ignorés','Modification manuelle de chaque date et recalcul automatique','Date visible à l’écran, dans les copies, l’affichage plein écran et le PDF, absente si désactivée','Bouton « Ajouter au calendrier » (.ics) et lecture vocale facultative de la date']},
@@ -920,7 +926,7 @@ function paintResult(entry,fx){
   const dtl=(o,v)=>{const hn=holName(o.d);return `<span class="dt${hn?' hol':''}" data-a="dtedit" data-v="${v}">${hn?'⚠ ':''}${esc(fmtDT(o))}</span>`};
   let h=`<h3>${esc(title)}</h3>`;
   if(isGrouped({mode,blocks})){h+='<div class="groups">'+blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="gcard" style="--gc:${bc(b,i)};animation-delay:${i*90}ms"><h4>${esc(b.h)} <small>(${b.items.length})</small>${b.date?dtl(b.date,i+':g'):''}</h4>${b.items.map((x,k)=>`<div class="gi"><span>${esc(itx(b,k))}</span>${plb(b,k)}</div>`).join('')}</div>`).join('')+'</div>'}
-  else h+=blocks.map((b,bi)=>`<div class="items">${b.items.map((x,i)=>`<div class="it" style="--c:${PAL[i%PAL.length]};animation-delay:${i*60}ms"><em>${b.num?i+1:'•'}</em>${esc(itx(b,i))}${plb(b,i)}${b.dates&&b.dates[i]?dtl(b.dates[i],bi+':'+i):''}</div>`).join('')}</div>`).join('');
+  else h+=blocks.map((b,bi)=>`<div class="items">${b.items.map((x,i)=>`<div class="it" style="--c:${PAL[i%PAL.length]};animation-delay:${i*60}ms"><em>${b.num?i+1:'•'}</em><span class="nm">${esc(itx(b,i))}</span><span class="mt">${plb(b,i)}${b.dates&&b.dates[i]?dtl(b.dates[i],bi+':'+i):''}</span></div>`).join('')}</div>`).join('');
   if(entry.rot)h+=rotHTML(entry);
   const hasDt=blocks.some(b=>b.date||(b.dates&&b.dates.some(Boolean)))||(entry.rot&&entry.rot.dates);
   h+=`<div class="acts"><button class="btn" data-a="speakres">🔊 ${t('speakBtn')}</button><button class="btn" data-a="copyres">${t('copy')}</button><button class="btn" data-a="shareres">${t('share')}</button><button class="btn" data-a="pdfres">${t('pdf')}</button><button class="btn" data-a="bigres">${t('big')}</button>${hasDt?`<button class="btn" data-a="dtcal">📅 ${t('dtCal')}</button>`:''}${S.dt.on&&['order','groups','rotation'].includes(mode)?`<button class="btn" data-a="dtredo">${t('dtRedo')}</button>`:''}${UNDO.length?`<button class="btn" data-a="undo">↶ ${t('undo')}</button>`:''}</div>`;
@@ -1104,7 +1110,7 @@ function showBig(){
   let h=`<button class="bclose" data-a="closebig">×</button><div class="btitle">${esc(e.title)}</div>`;
   if(isGrouped(e))h+='<div class="bgroups">'+e.blocks.filter(b=>!b.rotb).map((b,i)=>`<div class="bg" style="--gc:${bc(b,i)}"><h4>${esc(b.h)}${b.date?` <span class="dt">${esc(fmtDT(b.date))}</span>`:''}</h4>${b.items.map((x,k)=>`<div>${esc(itx(b,k))} ${plb(b,k)}</div>`).join('')}</div>`).join('')+'</div>'+(e.rot?rotHTML(e):'');
   else if(e.blocks[0].items.length===1)h+=`<div class="bone">${esc(e.blocks[0].items[0])}</div>`;
-  else h+='<div class="blist">'+e.blocks[0].items.map((x,i)=>`<div style="--c:${PAL[i%PAL.length]}"><em>${e.blocks[0].num?i+1:'•'}</em><span>${esc(itx(e.blocks[0],i))}</span>${plb(e.blocks[0],i)}${e.blocks[0].dates&&e.blocks[0].dates[i]?`<span class="dt">${esc(fmtDT(e.blocks[0].dates[i]))}</span>`:''}</div>`).join('')+'</div>';
+  else h+='<div class="blist">'+e.blocks[0].items.map((x,i)=>`<div style="--c:${PAL[i%PAL.length]}"><em>${e.blocks[0].num?i+1:'•'}</em><span class="nm">${esc(itx(e.blocks[0],i))}</span><span class="mt">${plb(e.blocks[0],i)}${e.blocks[0].dates&&e.blocks[0].dates[i]?`<span class="dt">${esc(fmtDT(e.blocks[0].dates[i]))}</span>`:''}</span></div>`).join('')+'</div>';
   const b=$('#big');b.innerHTML=h;b.classList.add('on');b.scrollTop=0;
   try{if(navigator.wakeLock)navigator.wakeLock.request('screen').then(w=>{WL=w}).catch(()=>{})}catch(err){}}
 function closeBig(){$('#big').classList.remove('on');$('#big').innerHTML='';try{WL&&WL.release();WL=null}catch(e){}}
